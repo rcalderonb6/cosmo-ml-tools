@@ -1,4 +1,4 @@
-"""Top-level package for cosmo-ml-tools."""
+"""Statistics module."""
 
 __author__ = """Rodrigo Calderon"""
 __email__ = "calderon.cosmology@gmail.com"
