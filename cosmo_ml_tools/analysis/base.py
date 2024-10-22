@@ -49,6 +49,10 @@ class ChainBase(ABC):
         Print a latex table with the mean and 68% CL.
         """
         ...
+    
+    @abstractmethod
+    def trace(self):
+        ...
         
 class AnalysisBase(ABC):
     """

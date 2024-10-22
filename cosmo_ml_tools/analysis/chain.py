@@ -48,7 +48,7 @@ class MontePythonChain(MHChain):
 #####################    
 
 def convert_to_harmonic(chain_fn:str,ndim:int,N:int=4,sampler:str='cobaya',ignore:float=0.3)-> tuple[list,list]:
-    """Convert a set of chains into a Harmonic-friendly format
+    """Helper functionn to convert a set of chains into a Harmonic-friendly format
 
     Args:
         chain_fn (str): the location of the chains on the disk, where chain_fn is the root for all the chains (and .param_names files)

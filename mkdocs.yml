@@ -82,6 +82,7 @@ nav:
           - Cosmo-ML-Tools Overview: cosmo_ml_tools.md
           - Common: common.md
           - Cosmology: cosmology.md
+          - Sampler: sampler.md
           - Statistics: stats.md
           - Plotting: plots.md
           - Analysis: analysis.md
