@@ -676,6 +676,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnalysisBase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.ChainBase" class="md-nav__link">
     <span class="md-ellipsis">
       ChainBase
@@ -862,6 +871,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnalysisBase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.ChainBase" class="md-nav__link">
     <span class="md-ellipsis">
       ChainBase
@@ -1012,6 +1030,130 @@
 
 
 
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.analysis.base.AnalysisBase" class="doc doc-heading">
+        <code>
+AnalysisBase            (<span title="abc.ABC">ABC</span>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.analysis.base.AnalysisBase" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Abstract Analysis Class</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">AnalysisBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract Analysis Class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">labels</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="o">=</span><span class="n">labels</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chains</span><span class="p">):</span>
+        <span class="o">...</span>    
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">plot_triangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>    
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">plot_2D</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>    
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">plot_posterior_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+        <span class="o">...</span>    
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_getGelmanRubin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>   
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>    
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">set_aliases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">aliases</span><span class="p">):</span>
+        <span class="o">...</span>        
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">GelmanRubin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getGelmanRubin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">chains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">labels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filenames</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filenames</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">N</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
