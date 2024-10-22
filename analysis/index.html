@@ -868,6 +868,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.chain.MHChain.load" class="md-nav__link">
+    <span class="md-ellipsis">
+      load()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.chain.MHChain.set_param_labels" class="md-nav__link">
     <span class="md-ellipsis">
       set_param_labels()
@@ -1362,6 +1371,15 @@
   <a href="#cosmo_ml_tools.analysis.chain.MHChain.getTable" class="md-nav__link">
     <span class="md-ellipsis">
       getTable()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.chain.MHChain.load" class="md-nav__link">
+    <span class="md-ellipsis">
+      load()
     </span>
   </a>
   
@@ -2368,11 +2386,11 @@ MHChain            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Metropolis-Hastings Base Class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># def load(self,engine:str=&#39;getdist&#39;):</span>
-    <span class="c1">#     if engine==&#39;getdist&#39;:</span>
-    <span class="c1">#         return loadMCSamples(self._root+self.fn,self.gd_settings)</span>
-    <span class="c1">#     else:</span>
-    <span class="c1">#         raise NotImplementedError</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;getdist&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">engine</span><span class="o">==</span><span class="s1">&#39;getdist&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">loadMCSamples</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gd_settings</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
     <span class="k">def</span> <span class="nf">to_harmonic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="ne">NotImplementedError</span>
@@ -2444,6 +2462,35 @@ MHChain            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.
           <summary>Source code in <code>cosmo_ml_tools/analysis/chain.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
     <span class="k">return</span> <span class="ne">NotImplementedError</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="cosmo_ml_tools.analysis.chain.MHChain.load" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;getdist&#39;</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.chain.MHChain.load" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load the chain using the engine of your choice</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/chain.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;getdist&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">engine</span><span class="o">==</span><span class="s1">&#39;getdist&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">loadMCSamples</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gd_settings</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </code></pre></div>
         </details>
     </div>
