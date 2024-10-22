@@ -2,8 +2,8 @@ def get_latex_table(samples,parameters,param_labels=None):
     """
     Get a latex table with mean and 68% credible intervals constraints for a given set of chains and cosmological parameters.
 
-    samples: dictionnary, a dictionnary with getdist instances with the chains. 
-    The corresponding dictionnary keys are used as labels.
+    samples: dictionary, a dictionary with getdist instances with the chains. 
+    The corresponding dictionary keys are used as labels.
     
     parameters: list, a list with parameter names you want to include in the table
     
@@ -12,7 +12,7 @@ def get_latex_table(samples,parameters,param_labels=None):
     
     """
     Nparams=len(parameters)
-    cols='l'+'c'*Nparams
+    cols='l'+'c' * Nparams
 
     print(r'\begin{table*}[t]')
     print(r'\caption{68\% credible intervals for the cosmological parameters,\
