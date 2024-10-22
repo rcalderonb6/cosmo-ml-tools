@@ -1,16 +1,16 @@
 import numpy as np
 from .base import ChainBase
-from getdist import loadMCSamples
+# from getdist import loadMCSamples
 
 class MHChain(ChainBase):    
     """
     Metropolis-Hastings Base Class
     """
-    def load(self,engine:str='getdist'):
-        if engine=='getdist':
-            return loadMCSamples(self._root+self.fn,self.gd_settings)
-        else:
-            raise NotImplementedError
+    # def load(self,engine:str='getdist'):
+    #     if engine=='getdist':
+    #         return loadMCSamples(self._root+self.fn,self.gd_settings)
+    #     else:
+    #         raise NotImplementedError
     
     def to_harmonic(self):
         return NotImplementedError
