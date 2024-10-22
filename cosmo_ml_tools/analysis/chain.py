@@ -72,7 +72,7 @@ def convert_to_harmonic(chain_fn:str,ndim:int,N:int=4,sampler:str='cobaya',ignor
         samples=np.array([chain[burn_in:min_len,2:ndim+2] for chain in chains.values()]).reshape((N,min_len-burn_in,ndim))
         lnprob=-np.array([chain[burn_in:min_len,1] for chain in chains.values()]).reshape((N,min_len-burn_in))
     
-    #TODO: Implement Montepython compatibility (Should check which columnns give lnprob and whether sampled params are first)
+    #TODO: Implement Montepython compatibility (Should check which columns give lnprob and whether the sampled params are first)
     elif sampler=='montepython':
         print('Sorry, Montepython not yet implemented!')
         return
