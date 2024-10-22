@@ -50,12 +50,12 @@ def convert_to_harmonic(chain_fn,ndim,N:int=4,sampler:str='cobaya',ignore:float=
     
     # Determine the smaller of them and determine burn-in
     min_len=np.min([chain.shape[0] for chain in chains.values()])
-    burnin=int(ignore * min_len)
+    burn_in=int(ignore * min_len)
     
     # Reshape them into harmonic-friendly format
     if sampler=='cobaya':
-        samples=np.array([chain[burnin:min_len,2:ndim+2] for chain in chains.values()]).reshape((N,min_len-burnin,ndim))
-        lnprob=-np.array([chain[burnin:min_len,1] for chain in chains.values()]).reshape((N,min_len-burnin))
+        samples=np.array([chain[burn_in:min_len,2:ndim+2] for chain in chains.values()]).reshape((N,min_len-burn_in,ndim))
+        lnprob=-np.array([chain[burn_in:min_len,1] for chain in chains.values()]).reshape((N,min_len-burn_in))
     
     #TODO: Implement Montepython compatibility
     elif sampler=='montepython':
