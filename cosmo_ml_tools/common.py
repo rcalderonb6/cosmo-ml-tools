@@ -5,3 +5,8 @@ def hello_world():
     """Prints "Hello World!" to the console.
     """
     print("Hello World!")
+    
+def bye_world():
+    """Prints "Bye World!" to the console.
+    """
+    print("Bye World!")
