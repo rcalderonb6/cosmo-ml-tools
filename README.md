@@ -5,7 +5,7 @@
 [![image](https://img.shields.io/conda/vn/conda-forge/cosmo_ml_tools.svg)](https://anaconda.org/conda-forge/cosmo_ml_tools)
 
 
-**A python package that wraps many useful python packagages, ML algorithms and automatizes common workflows in Cosmology.**
+**A python package that wraps many useful python packagages, ML algorithms and automates common workflows in Cosmology.**
 
 **DISCLAIMER**: This is very much work in progress. It is originally intended for my own use, so the documentation might not be as good as I would like.
 

@@ -1,19 +1,11 @@
 from abc import ABC, abstractmethod
+
 class ChainBase(ABC):
     """
     Abstract Base Chain Class
     """
-    def __init__(self,fn,root='',label:str = None,
-                 param_names:list = None, engine:str = 'getdist',
-                 analysis_settings:dict = {'ignore_rows':0.3}) -> None:
-        
-        self._engine=engine
-        self._root=root
-        self.filename=fn
-        self.param_names=param_names
-        self.label='chain' if label is None else label
-        self.alias=None
-        self.gd_settings=analysis_settings
+    def __init__(self):
+        pass
     
     @abstractmethod
     def load(self):
