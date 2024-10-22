@@ -1,8 +1,8 @@
 site_name: cosmo_ml_tools
-site_description: A python package that wraps many po useful ML packaagages and algorithms in cosmology.
+site_description: My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.
 site_author: rcalderonb6
-site_url: https://rcalderonb6.github.io/cosmo_ml_tools
-repo_url: https://github.com/rcalderonb6/cosmo_ml_tools
+site_url: https://rcalderonb6.github.io/cosmo-ml-tools
+repo_url: https://github.com/rcalderonb6/cosmo-ml-tools
 
 copyright: "Copyright &copy; 2024 - 2024 Rodrigo Calderon, Ph.D."
 
@@ -78,15 +78,15 @@ nav:
     - Contributing: contributing.md
     - FAQ: faq.md
     - Changelog: changelog.md
-    - Report Issues: https://github.com/rcalderonb6/cosmo_ml_tools/issues
+    - Report Issues: https://github.com/rcalderonb6/cosmo-ml-tools/issues
     - Examples:
         - examples/intro.ipynb
     - API Reference:
-          - cosmo_ml_tools module: cosmo_ml_tools.md
-          - common module: common.md
-          - cosmology module: cosmology.md
-          - statistics module: stats.md
-          - plotting module: plots.md
-          - analysis module: analysis.md
-          - workflows module: workflows.md
-          - utils module: utils.md
+          - Cosmo-ML-Tools Overview: cosmo_ml_tools.md
+          - Common: common.md
+          - Cosmology: cosmology.md
+          - Statistics: stats.md
+          - Plotting: plots.md
+          - Analysis: analysis.md
+          - Workflows: workflows.md
+          - Utilities: utils.md
