@@ -1,8 +1,10 @@
 # ```Cosmo-ML-Tools```
-![image](docs/assets/logo.png)
+<img src="docs/assets/logo.jpg" width="300" height="300">
+
+<!-- ![image](docs/assets/logo.png) -->
 ### A Cosmology & Machine Learning Toolbox
-[![image](https://img.shields.io/pypi/v/cosmo_ml_tools.svg)](https://pypi.python.org/pypi/cosmo_ml_tools)
-[![image](https://img.shields.io/conda/vn/conda-forge/cosmo_ml_tools.svg)](https://anaconda.org/conda-forge/cosmo_ml_tools)
+[![image](https://img.shields.io/pypi/v/cosmo_ml_tools.svg)](https://pypi.python.org/pypi/cosmo-ml-tools)
+[![image](https://img.shields.io/conda/vn/conda-forge/cosmo-ml-tools.svg)](https://anaconda.org/conda-forge/cosmo-ml-tools)
 
 
 **My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.**
