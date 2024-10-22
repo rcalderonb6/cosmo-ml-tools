@@ -1,6 +1,6 @@
 import numpy as np
 from base import ChainBase
-from utils.table import get_latex_table
+# from utils.table import get_latex_table
 
 class MHChain(ChainBase):    
     """
@@ -43,7 +43,9 @@ class MontePythonChain(MHChain):
 #####################    
 
 def convert_to_harmonic(chain_fn,ndim,N:int=4,sampler:str='cobaya',ignore:float=0.3)-> tuple[list,list]:
-    
+    """
+    Convert Cobaya samples into a Harmonic-friendly for the computation of the Bayesian Evidence.
+    """
     #Load individual chains
     chains={f'chain{i}': np.loadtxt(f'{chain_fn}.{i}.txt') for i in range(1,N)}
     
