@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
-try:
-    from getdist import plots, loadMCSamples
-except ModuleNotFoundError: 
-    print ("Getdist is a requirement for this Class to work. \
-        Consider installing Getdist by typing: python -m pip install getdist")
+# try:
+#     from getdist import plots, loadMCSamples
+# except ModuleNotFoundError: 
+#     print ("Getdist is a requirement for this Class to work. \
+#         Consider installing Getdist by typing: python -m pip install getdist")
 
 class ChainBase(ABC):
     """
@@ -129,7 +129,7 @@ class AnalysisBase(ABC):
         return self._labels
     
     @property
-    def filenames(self)-> list:
+    def filenames(self) -> list:
         return self._filenames
     
     @property
