@@ -1,3 +1,3 @@
-# cosmo_ml_tools module
+# Statistics module
 
 ::: cosmo_ml_tools.stats
