@@ -1,5 +1,5 @@
 # ```Cosmo-ML-Tools```
-<img src="docs/assets/logo.jpg" width="300" height="300">
+<img src="docs/assets/logo.jpg" width="400" height="400">
 
 <!-- ![image](docs/assets/logo.png) -->
 ### A Cosmology & Machine Learning Toolbox

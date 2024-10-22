@@ -1,7 +1,8 @@
 # Welcome to Cosmo-ML-Tools
 ### A Cosmology & Machine Learning Toolbox
 
-![image](assets/logo.jpg)
+<img src="assets/logo.jpg" width="400" height="400">
+
 [![image](https://img.shields.io/pypi/v/cosmo-ml-tools.svg)](https://pypi.python.org/pypi/cosmo-ml-tools)
 
 **My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.**
