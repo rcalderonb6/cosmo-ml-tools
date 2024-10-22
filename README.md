@@ -1,4 +1,4 @@
-# ```cosmo-ML-tools```
+# ```Cosmo-ML-Tools```
 
 
 [![image](https://img.shields.io/pypi/v/cosmo_ml_tools.svg)](https://pypi.python.org/pypi/cosmo_ml_tools)

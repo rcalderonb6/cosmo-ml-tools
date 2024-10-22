@@ -1,4 +1,4 @@
-from base import ChainBase
+from .base import ChainBase
 class MHChain(ChainBase):    
     """
     Metropolis-Hastings Base Class
