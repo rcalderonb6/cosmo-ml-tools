@@ -1,6 +1,6 @@
 # ```Cosmo-ML-Tools```
+![image](docs/assets/logo.png)
 ### A Cosmology & Machine Learning Toolbox
-
 [![image](https://img.shields.io/pypi/v/cosmo_ml_tools.svg)](https://pypi.python.org/pypi/cosmo_ml_tools)
 [![image](https://img.shields.io/conda/vn/conda-forge/cosmo_ml_tools.svg)](https://anaconda.org/conda-forge/cosmo_ml_tools)
 
