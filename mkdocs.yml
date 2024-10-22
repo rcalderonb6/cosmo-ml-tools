@@ -84,4 +84,9 @@ nav:
     - API Reference:
           - cosmo_ml_tools module: cosmo_ml_tools.md
           - common module: common.md
+          - cosmology module: cosmology.md
           - statistics module: stats.md
+          - plotting module: plots.md
+          - analysis module: analysis.md
+          - workflows module: workflows.md
+          - utils module: utils.md
