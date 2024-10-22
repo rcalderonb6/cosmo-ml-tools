@@ -705,6 +705,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.table" class="md-nav__link">
+    <span class="md-ellipsis">
+      table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.table.get_latex_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_latex_table()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -756,6 +780,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.table" class="md-nav__link">
+    <span class="md-ellipsis">
+      table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.table.get_latex_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_latex_table()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -800,6 +848,114 @@
 
 
 
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.utils.table" class="doc doc-heading">
+        <code>table</code>
+
+
+
+<a href="#cosmo_ml_tools.utils.table" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.utils.table.get_latex_table" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_latex_table</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">param_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.utils.table.get_latex_table" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get a latex table with mean and 68% credible intervals constraints for a given set of chains and cosmological parameters.</p>
+<p>samples: dictionary, a dictionary with getdist instances with the chains. 
+The corresponding dictionary keys are used as labels.</p>
+<p>parameters: list, a list with parameter names you want to include in the table</p>
+<p>param_labels: list (optional), a list with latex names for each of the requested parameters. 
+If none, its name on the chain is used.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/utils/table.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_latex_table</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span><span class="n">param_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a latex table with mean and 68% credible intervals constraints for a given set of chains and cosmological parameters.</span>
+
+<span class="sd">    samples: dictionary, a dictionary with getdist instances with the chains. </span>
+<span class="sd">    The corresponding dictionary keys are used as labels.</span>
+
+<span class="sd">    parameters: list, a list with parameter names you want to include in the table</span>
+
+<span class="sd">    param_labels: list (optional), a list with latex names for each of the requested parameters. </span>
+<span class="sd">    If none, its name on the chain is used.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Nparams</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+    <span class="n">cols</span><span class="o">=</span><span class="s1">&#39;l&#39;</span><span class="o">+</span><span class="s1">&#39;c&#39;</span> <span class="o">*</span> <span class="n">Nparams</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\begin{table*}[t]&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\caption{68\</span><span class="si">% c</span><span class="s1">redible intervals for the cosmological parameters,</span><span class="se">\</span>
+<span class="s1">        using various dataset combinations.&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;\vspace</span><span class="si">{0.5em}</span><span class="s1">}&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\label{tab:tab_label}&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\centering&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\small&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\resizebox{0.95\textwidth}{!}{&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\begin</span><span class="si">{tabular}</span><span class="s1">&#39;</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;{</span><span class="si">%s</span><span class="s1">}&#39;</span><span class="o">%</span><span class="n">cols</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\toprule&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\toprule&#39;</span><span class="p">)</span>
+    <span class="n">line</span><span class="o">=</span><span class="s1">&#39;Dataset&#39;</span>
+    <span class="n">params</span><span class="o">=</span><span class="n">parameters</span> <span class="k">if</span> <span class="n">param_labels</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">param_labels</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+        <span class="n">line</span><span class="o">+=</span><span class="sa">f</span><span class="s1">&#39; &amp; </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39; </span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\midrule[1.5pt]&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">lbl</span><span class="p">,</span><span class="n">chain</span> <span class="ow">in</span> <span class="n">samples</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">line</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lbl</span><span class="si">}</span><span class="s1">&#39;</span>   
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+            <span class="n">stats</span><span class="o">=</span><span class="n">chain</span><span class="o">.</span><span class="n">getInlineLatex</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">line</span><span class="o">+=</span><span class="sa">f</span><span class="s1">&#39; &amp; $</span><span class="si">{</span><span class="n">stats</span><span class="si">}</span><span class="s1">$ &#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39; </span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lbl</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\midrule&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\toprule&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\toprule&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\end</span><span class="si">{tabular}</span><span class="s1">}&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\end{table*}&#39;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
