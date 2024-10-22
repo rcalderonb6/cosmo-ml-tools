@@ -94,7 +94,7 @@ class AnalysisBase(ABC):
     def plot_posterior_y(self,x,f,theta):
         """
         Plot the posterior distribution of a given function y = f(x,theta)
-        from MCMC samples of theta using ``the f_given_x package``.
+        from MCMC samples of theta using the ``f_given_x`` package.
         """
         ...    
     
