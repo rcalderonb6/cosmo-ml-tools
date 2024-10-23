@@ -393,6 +393,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/gp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -448,7 +469,7 @@
         
   
   <span class="md-ellipsis">
-    Cosmo-ML-Tools Overview
+    Structure Overview
   </span>
   
 
@@ -610,6 +631,30 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.ensemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      ensemble
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ensemble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.ensemble.EnsembleBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      EnsembleBase
+    </span>
+  </a>
   
 </li>
         
@@ -911,6 +956,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.ensemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      ensemble
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ensemble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.ensemble.EnsembleBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      EnsembleBase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1004,7 +1073,7 @@ MCBase            (<span title="abc.ABC">ABC</span>)
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MCBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract Monte Carlo Base Class&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+        <span class="o">...</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1175,6 +1244,94 @@ MCBase            (<span title="abc.ABC">ABC</span>)
     </div>
 
   </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.sampler.ensemble" class="doc doc-heading">
+        <code>ensemble</code>
+
+
+
+<a href="#cosmo_ml_tools.sampler.ensemble" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.sampler.ensemble.EnsembleBase" class="doc doc-heading">
+        <code>
+EnsembleBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.sampler.base.MCBase" href="#cosmo_ml_tools.sampler.base.MCBase">MCBase</a>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.sampler.ensemble.EnsembleBase" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Base Class for an Ensemble Sampler</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/sampler/ensemble.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">EnsembleBase</span><span class="p">(</span><span class="n">MCBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base Class for an Ensemble Sampler</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
 
 
 
