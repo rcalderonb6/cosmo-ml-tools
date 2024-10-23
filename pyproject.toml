@@ -34,7 +34,7 @@ all = [
 ]
 
 extra = [
-    "pandas","numpyro"
+    "pandas","cobaya","numpyro","harmonic"
 ]
 
 

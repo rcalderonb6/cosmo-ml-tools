@@ -35,27 +35,27 @@ class GaussianProcessJax(GaussianProcessBase):
         # Sample kernel parameters and noise
         with numpyro.plate('k_param', self.input_dim):  # allows using ARD kernel for input_dim > 1
             length = numpyro.sample("ell_f", dist.LogNormal(0.0, 1.0))
-        scale = numpyro.sample("sigma_f", dist.LogNormal(0.0, 1.0))
-        noise = numpyro.sample("noise", dist.LogNormal(0.0, 1.0))
+            scale = numpyro.sample("sigma_f", dist.LogNormal(0.0, 1.0))
+            noise = numpyro.sample("noise", dist.LogNormal(0.0, 1.0))
         
-        # Add mean function (if any)
-        if self.mean_fn is not None:
-            f_loc += self.mean_fn(X).squeeze()
-        
-        # compute kernel
-        k = self.kernel(
-            X, X,
-            {"ell_f": length, "sigma_f": scale},
-            noise
-        )
-        # sample y according to the standard Gaussian process formula
-        numpyro.sample(
-            "y",
-            dist.MultivariateNormal(loc=f_loc, covariance_matrix=k),
-            obs=y,
-        )
+            # Add mean function (if any)
+            if self.mean_fn is not None:
+                f_loc += self.mean_fn(X).squeeze()
+            
+            # compute kernel
+            k = self.kernel(
+                X, X,
+                {"ell_f": length, "sigma_f": scale},
+                noise
+            )
+            # sample y according to the standard Gaussian process formula
+            numpyro.sample(
+                "y",
+                dist.MultivariateNormal(loc=f_loc, covariance_matrix=k),
+                obs=y,
+            )
 
-    def fit(self, rng_key, X, y,
+    def run_MCMC(self, rng_key, X, y,
             num_warmup=2000, num_samples=2000, num_chains=1,
             progress_bar=True, print_summary=True):
         """
@@ -79,12 +79,12 @@ class GaussianProcessJax(GaussianProcessBase):
         if print_summary:
             self.mcmc.print_summary()
     
-    def get_samples(self, chain_dim=False):
+    def get_mcmc_samples(self, chain_dim=False):
         """Get posterior samples (after running the MCMC chains)"""
         return self.mcmc.get_samples(group_by_chain=chain_dim)
 
     @partial(jit, static_argnames='self')
-    def get_mvn_posterior(self, X_test, params):
+    def get_posterior(self, X_test, params):
         """
         Returns parameters (mean and cov) of multivariate normal posterior
         for a single sample of GP hyperparameters
@@ -115,7 +115,7 @@ class GaussianProcessJax(GaussianProcessBase):
         X_test = X_test if X_test.ndim > 1 else X_test[:, None]
         
         # Get the predictive mean and covariance
-        y_mean, K = self.get_mvn_posterior(X_test, params)
+        y_mean, K = self.get_posterior(X_test, params)
         
         # draw samples from the posterior predictive for a given set of hyperparameters
         y_sample = dist.MultivariateNormal(y_mean, K).sample(rng_key, sample_shape=(n,))

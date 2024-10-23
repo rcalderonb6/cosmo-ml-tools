@@ -24,9 +24,10 @@
 * `Getdist`
 
 Optional requirements:
+* `Cobaya` - An essential MCMC sampler in Cosmology.
 * `Class/hi_class` - Boltzmann solver for the computation of cosmological observables. 
-* `Harmonic` - For Bayesian Evidence Computation and Model Selection
-* `ChainConsumer` - For post-processing of the chains (Useful in some specific cases - Defaults to `Getdist`)
+* `Harmonic` - For Bayesian Evidence Computation and Model Selection.
+* `ChainConsumer` - For post-processing of the chains (Useful in some specific cases - Defaults to `Getdist`).
 * `Numpyro` - For probabilistic programming, with support for auto-differentiation and Hamiltonian MonteCarlo (HMC) sampling schemes.
 * `GPry` - For likelihood emulation using GP. Useful when likelihood computations are time-consuming!
 
