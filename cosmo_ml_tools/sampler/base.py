@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class MCBase(ABC):
     """Abstract Monte Carlo Base Class"""
     def __init__(self):
-        pass
+        ...
     
     @abstractmethod
     def run(self,*args,**kwargs):

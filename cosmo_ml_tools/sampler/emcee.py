@@ -1,6 +1,6 @@
-from .base import MCBase
+from .ensemble import EnsembleBase
 
-class EMCEE(MCBase):
+class EMCEE(EnsembleBase):
      
      def __init__(self):
          pass
