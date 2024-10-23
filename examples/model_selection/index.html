@@ -12,7 +12,7 @@
         <meta name="author" content="rcalderonb6">
       
       
-        <link rel="canonical" href="https://rcalderonb6.github.io/cosmo-ml-tools/examples/intro/">
+        <link rel="canonical" href="https://rcalderonb6.github.io/cosmo-ml-tools/examples/model_selection/">
       
       
         <link rel="prev" href="../../usage/">
@@ -21,12 +21,12 @@
         <link rel="next" href="../../cosmo_ml_tools/">
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>Intro - Cosmo-ML-tools</title>
+        <title>Model selection - Cosmo-ML-tools</title>
       
     
     
@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bayesian-evidence-computation-and-model-selection-with" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -95,7 +100,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Cosmo-ML-tools" class="md-header__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -112,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Intro
+              Model selection
             
           </span>
         </div>
@@ -232,7 +237,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Cosmo-ML-tools" class="md-nav__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.jpg" alt="logo">
 
     </a>
     Cosmo-ML-tools
@@ -382,12 +387,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Intro
+    Model selection
   </span>
   
 
@@ -733,6 +740,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -745,7 +754,7 @@
               <article class="md-content__inner md-typeset">
                 
 
-    <a href="/cosmo-ml-tools/examples/intro/intro.ipynb" title="Download Notebook" class="md-content__button md-icon">
+    <a href="/cosmo-ml-tools/examples/model_selection/model_selection.ipynb" title="Download Notebook" class="md-content__button md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg>
     </a>
 
@@ -756,8 +765,6 @@
   
   
 
-
-  <h1>Intro</h1>
 
 <script>
 (function (global, factory) {
@@ -1194,13 +1201,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="bayesian-evidence-computation-and-model-selection-with-cobaya-harmonic">Bayesian Evidence Computation and Model Selection with <code>Cobaya</code> &amp; <code>Harmonic</code><a class="anchor-link" href="#bayesian-evidence-computation-and-model-selection-with-cobaya-harmonic">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-1">
@@ -1213,22 +1230,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Hello World!'</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">print('Hello World!')</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Hello World!
-</pre>
+<div class="clipboard-copy-txt" id="cell-1"></div>
 </div>
 </div>
 </div>

@@ -21,7 +21,7 @@
         <link rel="next" href="../plots/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Cosmo-ML-tools" class="md-header__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../assets/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -237,7 +237,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Cosmo-ML-tools" class="md-nav__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../assets/logo.jpg" alt="logo">
 
     </a>
     Cosmo-ML-tools
@@ -379,11 +379,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/intro/" class="md-nav__link">
+      <a href="../examples/model_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Intro
+    Model selection
   </span>
   
 
@@ -583,6 +583,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base" class="md-nav__link">
+    <span class="md-ellipsis">
+      base
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base.GaussianProcessBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      GaussianProcessBase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base.LikelihoodBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      LikelihoodBase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.stats.gp" class="md-nav__link">
     <span class="md-ellipsis">
       gp
@@ -596,6 +629,30 @@
   <a href="#cosmo_ml_tools.stats.gp.GaussianProcess" class="md-nav__link">
     <span class="md-ellipsis">
       GaussianProcess()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.likelihood" class="md-nav__link">
+    <span class="md-ellipsis">
+      likelihood
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="likelihood">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.likelihood.Likelihood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Likelihood
     </span>
   </a>
   
@@ -822,6 +879,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base" class="md-nav__link">
+    <span class="md-ellipsis">
+      base
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base.GaussianProcessBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      GaussianProcessBase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.base.LikelihoodBase" class="md-nav__link">
+    <span class="md-ellipsis">
+      LikelihoodBase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.stats.gp" class="md-nav__link">
     <span class="md-ellipsis">
       gp
@@ -835,6 +925,30 @@
   <a href="#cosmo_ml_tools.stats.gp.GaussianProcess" class="md-nav__link">
     <span class="md-ellipsis">
       GaussianProcess()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.likelihood" class="md-nav__link">
+    <span class="md-ellipsis">
+      likelihood
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="likelihood">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.likelihood.Likelihood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Likelihood
     </span>
   </a>
   
@@ -896,6 +1010,151 @@
 
 
 
+<h2 id="cosmo_ml_tools.stats.base" class="doc doc-heading">
+        <code>base</code>
+
+
+
+<a href="#cosmo_ml_tools.stats.base" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.stats.base.GaussianProcessBase" class="doc doc-heading">
+        <code>
+GaussianProcessBase            (<span title="abc.ABC">ABC</span>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.stats.base.GaussianProcessBase" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Gaussian Process Abstract Base class</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">GaussianProcessBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gaussian Process Abstract Base class&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.stats.base.LikelihoodBase" class="doc doc-heading">
+        <code>
+LikelihoodBase            (<span title="abc.ABC">ABC</span>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.stats.base.LikelihoodBase" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Likelihood Abstract Base Class</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">LikelihoodBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Likelihood Abstract Base Class&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
 <h2 id="cosmo_ml_tools.stats.gp" class="doc doc-heading">
         <code>gp</code>
 
@@ -947,6 +1206,96 @@
     </div>
 
   </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.stats.likelihood" class="doc doc-heading">
+        <code>likelihood</code>
+
+
+
+<a href="#cosmo_ml_tools.stats.likelihood" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.stats.likelihood.Likelihood" class="doc doc-heading">
+        <code>
+Likelihood            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.stats.base.LikelihoodBase" href="#cosmo_ml_tools.stats.base.LikelihoodBase">LikelihoodBase</a>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.stats.likelihood.Likelihood" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>General Likelihood Class</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/likelihood.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Likelihood</span><span class="p">(</span><span class="n">LikelihoodBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;General Likelihood Class&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">ln_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
 
 
 

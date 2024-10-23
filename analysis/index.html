@@ -21,7 +21,7 @@
         <link rel="next" href="../workflows/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Cosmo-ML-tools" class="md-header__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../assets/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -237,7 +237,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Cosmo-ML-tools" class="md-nav__button md-logo" aria-label="Cosmo-ML-tools" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../assets/logo.jpg" alt="logo">
 
     </a>
     Cosmo-ML-tools
@@ -379,11 +379,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/intro/" class="md-nav__link">
+      <a href="../examples/model_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Intro
+    Model selection
   </span>
   
 
@@ -1187,6 +1187,16 @@ MHChain            (<span title="cosmo_ml_tools.analysis.base.ChainBase">ChainBa
 <span class="sd">    Metropolis-Hastings Base Class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;getdist&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load the chain using the specified Engine. Defaults to Getdist.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            engine (str, optional): choice analysis engine. Engines that are currently implemented include: [&#39;getdist&#39;] Defaults to &#39;getdist&#39;. TODO: include compatibility with `chainconsumer` and `anesthaetic`</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If the engine is not yet implemented</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Samples: an instance of the Samples class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">engine</span><span class="o">==</span><span class="s1">&#39;getdist&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">loadMCSamples</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gd_settings</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1282,11 +1292,70 @@ MHChain            (<span title="cosmo_ml_tools.analysis.base.ChainBase">ChainBa
 
     <div class="doc doc-contents ">
 
-      <p>Load the chain using the engine of your choice</p>
+      <p>Load the chain using the specified Engine. Defaults to Getdist.</p>
 
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>engine</code></td>
+        <td><code>str</code></td>
+        <td><p>choice analysis engine. Engines that are currently implemented include: ['getdist'] Defaults to 'getdist'. TODO: include compatibility with <code>chainconsumer</code> and <code>anesthaetic</code></p></td>
+        <td><code>&#39;getdist&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>NotImplementedError</code></td>
+        <td><p>If the engine is not yet implemented</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Samples</code></td>
+      <td><p>an instance of the Samples class.</p></td>
+    </tr>
+  </tbody>
+</table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/analysis/chain.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;getdist&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the chain using the specified Engine. Defaults to Getdist.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        engine (str, optional): choice analysis engine. Engines that are currently implemented include: [&#39;getdist&#39;] Defaults to &#39;getdist&#39;. TODO: include compatibility with `chainconsumer` and `anesthaetic`</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        NotImplementedError: If the engine is not yet implemented</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Samples: an instance of the Samples class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">engine</span><span class="o">==</span><span class="s1">&#39;getdist&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">loadMCSamples</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gd_settings</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
