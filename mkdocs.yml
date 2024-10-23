@@ -79,6 +79,7 @@ nav:
     - Basic Usage: usage.md
     - Examples:
         - examples/model_selection.ipynb
+        - examples/gp.ipynb
     - API Reference:
           - Cosmo-ML-Tools Overview: cosmo_ml_tools.md
           - Common: common.md
