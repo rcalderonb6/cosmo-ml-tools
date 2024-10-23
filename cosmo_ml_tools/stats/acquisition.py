@@ -5,7 +5,7 @@ import numpyro.distributions as dist
 
 from .gp import GaussianProcessJax
 
-def EI(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
+def ExpectedImprovement(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
        X: jnp.ndarray, xi: float = 0.01,
        maximize: bool = False, n: int = 1) -> jnp.ndarray:
     """
@@ -23,7 +23,7 @@ def EI(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
     return sigma * (updf + u * ucdf) 
 
 
-def UCB(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
+def UpperConfidenceBound(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
         X: jnp.ndarray, beta: float = .25,
         maximize: bool = False, n: int = 1) -> jnp.ndarray:
     """
@@ -39,7 +39,7 @@ def UCB(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
     return mean - delta 
 
 
-def UE(rng_key: jnp.ndarray,
+def UncertaintyExploration(rng_key: jnp.ndarray,
        model: Type[GaussianProcessJax],
        X: jnp.ndarray, n: int = 1) -> jnp.ndarray:
     """Uncertainty-based exploration (aka kriging)"""
@@ -47,7 +47,7 @@ def UE(rng_key: jnp.ndarray,
     return y_sampled.var(0)
 
 
-def Thompson(rng_key: jnp.ndarray,
+def ThompsonSampling(rng_key: jnp.ndarray,
              model: Type[GaussianProcessJax],
              posterior_samples: Dict[str, jnp.ndarray],
              X: jnp.ndarray, n: int = 1) -> jnp.ndarray:
