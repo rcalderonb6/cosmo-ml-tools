@@ -3,7 +3,7 @@ import jax.numpy as jnp
 import jax.random as jra
 import numpyro.distributions as dist
 
-from .gp import GaussianProcessJax
+from .gpjax import GaussianProcessJax
 
 def ExpectedImprovement(rng_key: jnp.ndarray, model: Type[GaussianProcessJax],
        X: jnp.ndarray, xi: float = 0.01,
