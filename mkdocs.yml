@@ -81,7 +81,7 @@ nav:
         - examples/model_selection.ipynb
         - examples/gp.ipynb
     - API Reference:
-          - Cosmo-ML-Tools Overview: cosmo_ml_tools.md
+          - Structure Overview: cosmo_ml_tools.md
           - Common: common.md
           - Cosmology: cosmology.md
           - Sampler: sampler.md
