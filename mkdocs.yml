@@ -23,8 +23,9 @@ theme:
     name: material
     icon:
         repo: fontawesome/brands/github
-    logo: assets/logo.png
-    favicon: assets/favicon.png
+    logo: assets/logo.jpg
+    # favicon: assets/favicon.png
+    favicon: assets/logo.png
     features:
         - navigation.instant
         - navigation.tracking
@@ -77,7 +78,7 @@ nav:
     - Installation: installation.md
     - Basic Usage: usage.md
     - Examples:
-        - examples/intro.ipynb
+        - examples/model_selection.ipynb
     - API Reference:
           - Cosmo-ML-Tools Overview: cosmo_ml_tools.md
           - Common: common.md

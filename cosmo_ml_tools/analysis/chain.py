@@ -7,6 +7,16 @@ class MHChain(ChainBase):
     Metropolis-Hastings Base Class
     """
     def load(self,engine:str='getdist'):
+        """Load the chain using the specified Engine. Defaults to Getdist.
+
+        Args:
+            engine (str, optional): choice analysis engine. Engines that are currently implemented include: ['getdist'] Defaults to 'getdist'. TODO: include compatibility with `chainconsumer` and `anesthaetic`
+        Raises:
+            NotImplementedError: If the engine is not yet implemented
+
+        Returns:
+            Samples: an instance of the Samples class.
+        """
         if engine=='getdist':
             return loadMCSamples(self._root+self.fn,self.gd_settings)
         else:

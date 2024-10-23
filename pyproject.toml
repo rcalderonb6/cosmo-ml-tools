@@ -4,7 +4,7 @@ version = "0.0.1"
 dynamic = [
     "dependencies",
 ]
-description = "My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology."
+description = "An attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology."
 readme = "README.md"
 requires-python = ">=3.8"
 keywords = [
@@ -34,7 +34,7 @@ all = [
 ]
 
 extra = [
-    "pandas","getdist"
+    "pandas","numpyro"
 ]
 
 

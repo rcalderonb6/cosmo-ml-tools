@@ -51,9 +51,22 @@ class ChainBase(ABC):
         ...
     
     @abstractmethod
-    def trace(self):
+    def trace(self,params:list,*args,**kwargs):
+        """Produce a trace plot of the chain for the requested parameters.
+        i.e. The evolution of the parameter values as a function of the iteration number.
+
+
+        Args:
+            params (list): A list of sampled (or derived) parameters to inspect
+        """
         ...
         
+    @abstractmethod    
+    def getMinimum(self,*args,**kwargs):
+        """
+        Get the minimum chi2 point from the chain
+        """
+        ...
 class AnalysisBase(ABC):
     """
     Abstract Analysis Class
