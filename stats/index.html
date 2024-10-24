@@ -2078,10 +2078,8 @@ m DE}(). Defaults to 4.</p></td>
     <div class="doc doc-contents ">
 
       <p>Get the dark energy evolution.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> $$f_\mathrm{DE}(z) = rac{
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$
 </code></pre></div></td></tr></table></div>
-<p>ho_{\mathrm{DE}}(z)}{
-ho_{\mathrm{DE},0}}$$</p>
 <p>for a given set of Chebyshev coefficients in the expansion of </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$
 </code></pre></div></td></tr></table></div>
@@ -2141,7 +2139,7 @@ ho_{\mathrm{DE},0}}$$</p>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">return_fde</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the dark energy evolution.</span>
 
 <span class="sd">         $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$</span>
