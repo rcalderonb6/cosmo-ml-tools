@@ -1,7 +1,7 @@
 import numpy as np
 
 def plot_fill_between(x : np.ndarray, samples : np.ndarray, label:str = None,
-                      ax=None,color:str='gray', lw=2., alpha=0.5, q:tuple=(2.3, 16, 50, 84, 97.7)):
+                      ax=None,color:str='gray', lw=2., alpha=0.5, quantiles:list=[2.3, 16, 50, 84, 97.7]):
     """Plot median and +/- 2 sigma regions for a given (flatten) array of samples"""
     
     if ax is None:
@@ -11,7 +11,7 @@ def plot_fill_between(x : np.ndarray, samples : np.ndarray, label:str = None,
             print('Cannot import matplotlib. Try installing matplotlib before!')
         fig,ax=plt.subplots()
         
-    qs = np.percentile(samples, q=q, axis=0)
+    qs = np.percentile(samples, q=quantiles, axis=0)
     idx = len(qs) // 2
     median = qs[idx]
     for i in range(1, idx + 1):
