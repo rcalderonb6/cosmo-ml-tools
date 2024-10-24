@@ -578,6 +578,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="BoltzmannBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.compute" class="md-nav__link">
+    <span class="md-ellipsis">
+      compute()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.getInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      getInfo()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.store" class="md-nav__link">
+    <span class="md-ellipsis">
+      store()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      update()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -883,6 +934,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="BoltzmannBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.compute" class="md-nav__link">
+    <span class="md-ellipsis">
+      compute()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.getInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      getInfo()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.store" class="md-nav__link">
+    <span class="md-ellipsis">
+      store()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      update()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1010,6 +1112,43 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print general information about the current Cosmology</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the values of the cosmological parameters with the provided dictionary and recompute observables.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        (Re)-compute the observables for the chosen cosmology</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observables</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot one or more of the requested output observables</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            observables (list[str]): One of the output observables requested to Class. e.g. P(k), Cl&#39;s...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Store the requested outputs in a given folder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
 </code></pre></div>
         </details>
 
@@ -1023,6 +1162,177 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 
 
 
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.base.BoltzmannBase.compute" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.compute" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>(Re)-compute the observables for the chosen cosmology</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    (Re)-compute the observables for the chosen cosmology</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.base.BoltzmannBase.getInfo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.getInfo" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Print general information about the current Cosmology</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print general information about the current Cosmology</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.base.BoltzmannBase.plot" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.plot" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Plot one or more of the requested output observables</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>observables</code></td>
+        <td><code>list[str]</code></td>
+        <td><p>One of the output observables requested to Class. e.g. P(k), Cl's...</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observables</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot one or more of the requested output observables</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        observables (list[str]): One of the output observables requested to Class. e.g. P(k), Cl&#39;s...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.base.BoltzmannBase.store" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.store" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Store the requested outputs in a given folder</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Store the requested outputs in a given folder</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.base.BoltzmannBase.update" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.base.BoltzmannBase.update" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Update the values of the cosmological parameters with the provided dictionary and recompute observables.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the values of the cosmological parameters with the provided dictionary and recompute observables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 
