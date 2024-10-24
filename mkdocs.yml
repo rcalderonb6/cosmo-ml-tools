@@ -66,6 +66,7 @@ markdown_extensions:
           linenums: true
     - pymdownx.arithmatex:
           generic: true
+          enable_dollar_delimiter: true
     - toc:
           permalink: true
 
