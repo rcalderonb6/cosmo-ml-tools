@@ -1795,7 +1795,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      <p>Compute the integral fde=exp[\int 3(1+w) dln(1+z)] for a Chebyshev expansion of w(z) up to order 7 (C6)</p>
+      <p>Compute the integral <span class="arithmatex">\(f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]\)</span> for a Chebyshev expansion of w(z) up to order 7 (C6)</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -1869,14 +1869,14 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
   <tbody>
     <tr>
       <td><code>array</code></td>
-      <td><p>corresponding dark energy density evolution fde(z).</p></td>
+      <td><p>corresponding dark energy density evolution <span class="arithmatex">\(f_\mathrm{DE}(z)\)</span>.</p></td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">analytical_fde_from_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">C0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">C1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C4</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C5</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C6</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the integral fde=exp[\int 3(1+w) dln(1+z)] for a Chebyshev expansion of w(z) up to order 7 (C6)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the integral $f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]$ for a Chebyshev expansion of w(z) up to order 7 (C6)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (array): redshift array</span>
@@ -1889,7 +1889,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">        C6 (int, optional): Seventh Chebyshev coefficient. Defaults to 0.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        array: corresponding dark energy density evolution fde(z).</span>
+<span class="sd">        array: corresponding dark energy density evolution $f_\mathrm{DE}(z)$.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">zmax</span><span class="o">=</span><span class="n">z</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="o">*</span><span class="n">C4</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">256</span><span class="o">*</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">C4</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">C1</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">C4</span><span class="p">))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">C0</span> <span class="o">-</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">+</span> <span class="n">C4</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">C3</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">16</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">16</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)))</span> <span class="o">+</span> <span class="n">C5</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">44</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">))))</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">C6</span><span class="o">*</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">512</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">320</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">64</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)))))</span><span class="o">/</span><span class="n">zmax</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span><span class="o">*</span><span class="n">C6</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">60</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">30</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">15</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">z</span><span class="p">)))))</span> <span class="o">+</span> <span class="mi">64</span><span class="o">*</span><span class="p">(</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">60</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))))</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="mi">80</span><span class="o">*</span><span class="p">(</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">C5</span> <span class="o">+</span> <span class="mi">54</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="p">)))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">C3</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="n">C4</span> <span class="o">+</span> <span class="mi">35</span><span class="o">*</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">112</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">30</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">C3</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">50</span><span class="o">*</span><span class="n">C5</span> <span class="o">+</span> <span class="mi">105</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">15</span><span class="o">*</span><span class="p">(</span><span class="n">C1</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">C3</span> <span class="o">-</span> <span class="mi">16</span><span class="o">*</span><span class="n">C4</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">36</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">5.</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span>
@@ -1990,7 +1990,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      <p>Get the dark energy evolution from MCMC samples of the Chebyshev coefficients</p>
+      <p>Get the dark energy evolution <span class="arithmatex">\(f_\mathrm{DE}(z)\)</span> from MCMC samples of the Chebyshev coefficients</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -2043,7 +2043,7 @@ m DE}(). Defaults to 4.</p></td>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_fde</span><span class="p">(</span><span class="n">z</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution from MCMC samples of the Chebyshev coefficients</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution $f_\mathrm{DE}(z)$ from MCMC samples of the Chebyshev coefficients</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (np.ndarray): array with redshift values</span>
@@ -2078,14 +2078,12 @@ m DE}(). Defaults to 4.</p></td>
     <div class="doc doc-contents ">
 
       <p>Get the dark energy evolution.</p>
-<p>.. math::</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>f_{\mathrm{DE}}(z) = rac{
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> $$f_\mathrm{DE}(z) = rac{
 </code></pre></div></td></tr></table></div>
 <p>ho_{\mathrm{DE}}(z)}{
-ho_{\mathrm{DE},0}}</p>
+ho_{\mathrm{DE},0}}$$</p>
 <p>for a given set of Chebyshev coefficients in the expansion of </p>
-<p>.. math::</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>w(z) = \sum_{i=0}^{N} c_i T_i(x)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$
 </code></pre></div></td></tr></table></div>
 
 <p><strong>Parameters:</strong></p>
@@ -2146,15 +2144,11 @@ ho_{\mathrm{DE},0}}</p>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the dark energy evolution.</span>
 
-<span class="sd">    .. math::</span>
-
-<span class="sd">        f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}</span>
+<span class="sd">         $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$</span>
 
 <span class="sd">    for a given set of Chebyshev coefficients in the expansion of </span>
 
-<span class="sd">    .. math::</span>
-
-<span class="sd">        w(z) = \sum_{i=0}^{N} c_i T_i(x)</span>
+<span class="sd">        $$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (_type_): _description_</span>
