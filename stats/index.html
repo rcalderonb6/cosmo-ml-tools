@@ -1958,7 +1958,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_Chebyshev_T</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">float</span><span class="o">|</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">Ci</span><span class="p">:</span><span class="nb">list</span><span class="o">|</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a Chebyshev Polynomial expansion for a given set of coefficients.</span>
 
 <span class="sd">    Args:</span>
@@ -2018,9 +2018,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
       <tr>
         <td><code>order</code></td>
         <td><code>int</code></td>
-        <td><p>The order of the polynomial expansion of fde(z)=
-ho_{
-m DE}(). Defaults to 4.</p></td>
+        <td><p>The order of the polynomial expansion of <span class="arithmatex">\(f_\mathrm{DE}(z)=\rho_{\rm DE}()\)</span>. Defaults to 4.</p></td>
         <td><code>4</code></td>
       </tr>
   </tbody>
@@ -2043,12 +2041,12 @@ m DE}(). Defaults to 4.</p></td>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_fde</span><span class="p">(</span><span class="n">z</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution $f_\mathrm{DE}(z)$ from MCMC samples of the Chebyshev coefficients</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution $f_\mathrm{DE}(z)$ from MCMC samples of the Chebyshev coefficients</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (np.ndarray): array with redshift values</span>
 <span class="sd">        samples_gd (dict): a dictionary with getdist instances. They keys in the dictionary are used as labels for each chains.</span>
-<span class="sd">        order (int, optional): The order of the polynomial expansion of fde(z)=\rho_{\rm DE}(). Defaults to 4.</span>
+<span class="sd">        order (int, optional): The order of the polynomial expansion of $f_\mathrm{DE}(z)=\rho_{\rm DE}()$. Defaults to 4.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: a dictionary containing the corresponding samples of fde(z) for each chain.</span>
@@ -2078,9 +2076,9 @@ m DE}(). Defaults to 4.</p></td>
     <div class="doc doc-contents ">
 
       <p>Get the dark energy evolution</p>
-<div class="arithmatex">\[ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} \]</div>
+<p>$ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} $</p>
 <p>for a given set of Chebyshev coefficients in the expansion of </p>
-<div class="arithmatex">\[ w(z) = \sum_{i=0}^{N} c_i T_i(x) \]</div>
+<p>$ w(z) = \sum_{i=0}^{N} c_i T_i(x) $</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
@@ -2088,11 +2086,11 @@ m DE}(). Defaults to 4.</p></td>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the dark energy evolution</span>
 
-<span class="sd">    \[ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} \]</span>
+<span class="sd">    $ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} $</span>
 
 <span class="sd">    for a given set of Chebyshev coefficients in the expansion of </span>
 
-<span class="sd">    \[ w(z) = \sum_{i=0}^{N} c_i T_i(x) \]</span>
+<span class="sd">    $ w(z) = \sum_{i=0}^{N} c_i T_i(x) $</span>
 
 <span class="sd">    Returns:</span>
 
