@@ -29,7 +29,7 @@ class BoltzmannBase(ABC):
         ...
         
     @abstractmethod
-    def plot(self, observables: list[str]) -> None:
+    def plot(self, observables: list[str],*args,**kwargs) -> None:
         """
         Plot one or more of the requested output observables
 
@@ -43,3 +43,11 @@ class BoltzmannBase(ABC):
         """Store the requested outputs in a given folder
         """
         ...
+        
+    @abstractmethod
+    def empty(self) -> None:
+        """
+        Clean up structure
+        """
+        ...
+        
