@@ -1,3 +1,3 @@
 # Cosmology module
 
-::: cosmo_ml_tools.cosmology
+::: cosmo_ml_tools.cosmology.classy
