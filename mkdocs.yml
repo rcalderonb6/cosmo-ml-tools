@@ -1,5 +1,5 @@
 site_name: Cosmo-ML-tools
-site_description: My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.
+site_description: An attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.
 site_author: rcalderonb6
 site_url: https://rcalderonb6.github.io/cosmo-ml-tools
 repo_url: https://github.com/rcalderonb6/cosmo-ml-tools
@@ -24,8 +24,8 @@ theme:
     icon:
         repo: fontawesome/brands/github
     logo: assets/logo.jpg
+    favicon: assets/logo.jpg
     # favicon: assets/favicon.png
-    favicon: assets/logo.png
     features:
         - navigation.instant
         - navigation.tracking
@@ -64,6 +64,8 @@ markdown_extensions:
     - pymdownx.superfences
     - pymdownx.highlight:
           linenums: true
+    - pymdownx.arithmatex:
+          generic: true
     - toc:
           permalink: true
 
@@ -82,7 +84,7 @@ nav:
         - examples/gp.ipynb
     - API Reference:
           - Structure Overview: cosmo_ml_tools.md
-          - Common: common.md
+          - Command Line Interface: common.md
           - Cosmology: cosmology.md
           - Sampler: sampler.md
           - Statistics: stats.md
@@ -91,6 +93,6 @@ nav:
           - Workflows: workflows.md
           - Utilities: utils.md
     - Contributing: contributing.md
-    - FAQ: faq.md
+    # - FAQ: faq.md
     - Changelog: changelog.md
     - Report Issues: https://github.com/rcalderonb6/cosmo-ml-tools/issues
