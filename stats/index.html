@@ -1876,7 +1876,7 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">analytical_fde_from_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">C0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">C1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C4</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C5</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C6</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the integral $f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]$ for a Chebyshev expansion of w(z) up to order 7 (C6)</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the integral $f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]$ for a Chebyshev expansion of w(z) up to order 7 (C6)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (array): redshift array</span>
@@ -2077,87 +2077,26 @@ m DE}(). Defaults to 4.</p></td>
 
     <div class="doc doc-contents ">
 
-      <p>Get the dark energy evolution.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$
-</code></pre></div></td></tr></table></div>
+      <p>Get the dark energy evolution</p>
+<div class="arithmatex">\[ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} \]</div>
 <p>for a given set of Chebyshev coefficients in the expansion of </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$
-</code></pre></div></td></tr></table></div>
+<div class="arithmatex">\[ w(z) = \sum_{i=0}^{N} c_i T_i(x) \]</div>
 
-<p><strong>Parameters:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><code>z</code></td>
-        <td><code>_type_</code></td>
-        <td><p><em>description</em></p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>samples_gd</code></td>
-        <td><code>dict</code></td>
-        <td><p><em>description</em></p></td>
-        <td><em>required</em></td>
-      </tr>
-      <tr>
-        <td><code>order</code></td>
-        <td><code>int</code></td>
-        <td><p><em>description</em>. Defaults to 4.</p></td>
-        <td><code>4</code></td>
-      </tr>
-      <tr>
-        <td><code>return_fde</code></td>
-        <td><code>bool</code></td>
-        <td><p><em>description</em>. Defaults to True.</p></td>
-        <td><code>True</code></td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>dict</code></td>
-      <td><p><em>description</em></p></td>
-    </tr>
-  </tbody>
-</table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">return_fde</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get the dark energy evolution.</span>
+<span class="sd">    Get the dark energy evolution</span>
 
-<span class="sd">         $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$</span>
+<span class="sd">    \[ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} \]</span>
 
 <span class="sd">    for a given set of Chebyshev coefficients in the expansion of </span>
 
-<span class="sd">        $$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        z (_type_): _description_</span>
-<span class="sd">        samples_gd (dict): _description_</span>
-<span class="sd">        order (int, optional): _description_. Defaults to 4.</span>
-<span class="sd">        return_fde (bool, optional): _description_. Defaults to True.</span>
+<span class="sd">    \[ w(z) = \sum_{i=0}^{N} c_i T_i(x) \]</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        dict: _description_</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">coeffs</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]</span>
     <span class="n">samples_hyper</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">samples</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coeffs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_gd</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
