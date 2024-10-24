@@ -17,7 +17,7 @@ def get_Chebyshev_T(x:float|np.ndarray,Ci:list|np.ndarray):
     return cheb
 
 def analytical_fde_from_w(z,C0=1,C1=0,C2=0,C3=0,C4=0,C5=0,C6=0):
-    """Compute the integral $f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]$ for a Chebyshev expansion of w(z) up to order 7 (C6)
+    r"""Compute the integral $f_\mathrm{DE}=\exp[\int 3(1+w) d\ln(1+z)]$ for a Chebyshev expansion of w(z) up to order 7 (C6)
 
     Args:
         z (array): redshift array
@@ -53,24 +53,17 @@ def get_samples_crossing_fde(z:np.ndarray,samples_gd:dict,order:int=4) -> dict:
 
 def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -> dict:
     r"""
-    Get the dark energy evolution.
+    Get the dark energy evolution
 
-         $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$
+    \[ f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}} \]
 
     for a given set of Chebyshev coefficients in the expansion of 
 
-        $$w(z) = \sum_{i=0}^{N} c_i T_i(x)$$
-
-    Args:
-        z (_type_): _description_
-        samples_gd (dict): _description_
-        order (int, optional): _description_. Defaults to 4.
-        return_fde (bool, optional): _description_. Defaults to True.
-
+    \[ w(z) = \sum_{i=0}^{N} c_i T_i(x) \]
+    
     Returns:
-        dict: _description_
-    """
 
+    """
 
     coeffs=[f'C{i}' for i in range(order)]
     samples_hyper={label: np.array([samples[c] for c in coeffs]).T for label,samples in samples_gd.items()}
