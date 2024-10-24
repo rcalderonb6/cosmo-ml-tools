@@ -2079,16 +2079,13 @@ m DE}(). Defaults to 4.</p></td>
 
       <p>Get the dark energy evolution.</p>
 <p>.. math::</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>f_{
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>f_{\mathrm{DE}}(z) = rac{
 </code></pre></div></td></tr></table></div>
-<p>m DE}(z) = rac{
-ho_{
-m DE}(z)}{
-ho_{
-m DE,0}}</p>
+<p>ho_{\mathrm{DE}}(z)}{
+ho_{\mathrm{DE},0}}</p>
 <p>for a given set of Chebyshev coefficients in the expansion of </p>
 <p>.. math::</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>w(z) = \sum_i^N c_i T_i(x)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>w(z) = \sum_{i=0}^{N} c_i T_i(x)
 </code></pre></div></td></tr></table></div>
 
 <p><strong>Parameters:</strong></p>
@@ -2151,13 +2148,13 @@ m DE,0}}</p>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        f_{\rm DE}(z) = \frac{\rho_{\rm DE}(z)}{\rho_{\rm DE,0}}</span>
+<span class="sd">        f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}</span>
 
 <span class="sd">    for a given set of Chebyshev coefficients in the expansion of </span>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        w(z) = \sum_i^N c_i T_i(x)</span>
+<span class="sd">        w(z) = \sum_{i=0}^{N} c_i T_i(x)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        z (_type_): _description_</span>
@@ -2168,6 +2165,7 @@ m DE,0}}</p>
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: _description_</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
 
     <span class="n">coeffs</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]</span>
     <span class="n">samples_hyper</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">samples</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coeffs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_gd</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
