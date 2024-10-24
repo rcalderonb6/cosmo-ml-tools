@@ -57,13 +57,13 @@ def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -
 
     .. math::
 
-        f_{\rm DE}(z) = \frac{\rho_{\rm DE}(z)}{\rho_{\rm DE,0}}
+        f_{\mathrm{DE}}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}
 
     for a given set of Chebyshev coefficients in the expansion of 
 
     .. math::
 
-        w(z) = \sum_i^N c_i T_i(x)
+        w(z) = \sum_{i=0}^{N} c_i T_i(x)
 
     Args:
         z (_type_): _description_
@@ -74,6 +74,7 @@ def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -
     Returns:
         dict: _description_
     """
+
 
     coeffs=[f'C{i}' for i in range(order)]
     samples_hyper={label: np.array([samples[c] for c in coeffs]).T for label,samples in samples_gd.items()}
