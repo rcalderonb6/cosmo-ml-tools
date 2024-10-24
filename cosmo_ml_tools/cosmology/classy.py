@@ -1,17 +1,17 @@
 import numpy as np
 from .base import BoltzmannBase
 from .constants import T0_FIRAS,TWO_PI
-from classy import Class
+# from classy import Class
 class Classy(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its variations"""
     def __init__(self) -> None:
         pass
 
-def retrieve_classy(info:dict):
-    m=Class()
-    m.set(info)
-    m.compute()
-    return m
+# def retrieve_classy(info:dict):
+#     m=Class()
+#     m.set(info)
+#     m.compute()
+#     return m
 
 def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict:
     """Get the (un)lensed total CMB power spectra and lensing power spectrum
