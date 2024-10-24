@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="My humble attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.">
+        <meta name="description" content="An attempt to wrap many useful python packagages, ML algorithms and automate common workflows in Cosmology.">
       
       
         <meta name="author" content="rcalderonb6">
@@ -21,7 +21,7 @@
         <link rel="next" href="../plots/">
       
       
-      <link rel="icon" href="../assets/logo.png">
+      <link rel="icon" href="../assets/logo.jpg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
@@ -490,7 +490,7 @@
         
   
   <span class="md-ellipsis">
-    Common
+    Command Line Interface
   </span>
   
 
@@ -677,6 +677,57 @@
   <a href="#cosmo_ml_tools.stats.base.LikelihoodBase" class="md-nav__link">
     <span class="md-ellipsis">
       LikelihoodBase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      crossing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="crossing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.analytical_fde_from_w" class="md-nav__link">
+    <span class="md-ellipsis">
+      analytical_fde_from_w()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_Chebyshev_T" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_Chebyshev_T()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_fde" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_samples_crossing_fde()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_w" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_samples_crossing_w()
     </span>
   </a>
   
@@ -973,26 +1024,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    FAQ
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../changelog/" class="md-nav__link">
         
   
@@ -1135,6 +1166,57 @@
   <a href="#cosmo_ml_tools.stats.base.LikelihoodBase" class="md-nav__link">
     <span class="md-ellipsis">
       LikelihoodBase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      crossing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="crossing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.analytical_fde_from_w" class="md-nav__link">
+    <span class="md-ellipsis">
+      analytical_fde_from_w()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_Chebyshev_T" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_Chebyshev_T()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_fde" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_samples_crossing_fde()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_w" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_samples_crossing_w()
     </span>
   </a>
   
@@ -1662,6 +1744,434 @@ LikelihoodBase            (<span title="abc.ABC">ABC</span>)
 
   </div>
 
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.stats.crossing" class="doc doc-heading">
+        <code>crossing</code>
+
+
+
+<a href="#cosmo_ml_tools.stats.crossing" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.stats.crossing.analytical_fde_from_w" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">analytical_fde_from_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">C0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">C1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C4</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C5</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C6</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.stats.crossing.analytical_fde_from_w" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Compute the integral fde=exp[\int 3(1+w) dln(1+z)] for a Chebyshev expansion of w(z) up to order 7 (C6)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>z</code></td>
+        <td><code>array</code></td>
+        <td><p>redshift array</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>C0</code></td>
+        <td><code>int</code></td>
+        <td><p>First Chebyshev coefficient. Defaults to 1.</p></td>
+        <td><code>1</code></td>
+      </tr>
+      <tr>
+        <td><code>C1</code></td>
+        <td><code>int</code></td>
+        <td><p>Second Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+      <tr>
+        <td><code>C2</code></td>
+        <td><code>int</code></td>
+        <td><p>Third Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+      <tr>
+        <td><code>C3</code></td>
+        <td><code>int</code></td>
+        <td><p>Fourth Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+      <tr>
+        <td><code>C4</code></td>
+        <td><code>int</code></td>
+        <td><p>Fifth Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+      <tr>
+        <td><code>C5</code></td>
+        <td><code>int</code></td>
+        <td><p>Sixth Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+      <tr>
+        <td><code>C6</code></td>
+        <td><code>int</code></td>
+        <td><p>Seventh Chebyshev coefficient. Defaults to 0.</p></td>
+        <td><code>0</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>array</code></td>
+      <td><p>corresponding dark energy density evolution fde(z).</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">analytical_fde_from_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">C0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">C1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C4</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C5</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C6</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the integral fde=exp[\int 3(1+w) dln(1+z)] for a Chebyshev expansion of w(z) up to order 7 (C6)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        z (array): redshift array</span>
+<span class="sd">        C0 (int, optional): First Chebyshev coefficient. Defaults to 1.</span>
+<span class="sd">        C1 (int, optional): Second Chebyshev coefficient. Defaults to 0.</span>
+<span class="sd">        C2 (int, optional): Third Chebyshev coefficient. Defaults to 0.</span>
+<span class="sd">        C3 (int, optional): Fourth Chebyshev coefficient. Defaults to 0.</span>
+<span class="sd">        C4 (int, optional): Fifth Chebyshev coefficient. Defaults to 0.</span>
+<span class="sd">        C5 (int, optional): Sixth Chebyshev coefficient. Defaults to 0.</span>
+<span class="sd">        C6 (int, optional): Seventh Chebyshev coefficient. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        array: corresponding dark energy density evolution fde(z).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">zmax</span><span class="o">=</span><span class="n">z</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="o">*</span><span class="n">C4</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">256</span><span class="o">*</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">C4</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">C1</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">C4</span><span class="p">))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">C0</span> <span class="o">-</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">+</span> <span class="n">C4</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">C3</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">16</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">16</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)))</span> <span class="o">+</span> <span class="n">C5</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">44</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">))))</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">C6</span><span class="o">*</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">512</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">320</span> <span class="o">+</span> <span class="n">zmax</span><span class="o">*</span><span class="p">(</span><span class="mi">64</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)))))</span><span class="o">/</span><span class="n">zmax</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">256</span><span class="o">*</span><span class="n">C6</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">60</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">30</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">15</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">z</span><span class="p">)))))</span> <span class="o">+</span> <span class="mi">64</span><span class="o">*</span><span class="p">(</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">60</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))))</span><span class="o">*</span><span class="n">zmax</span> <span class="o">+</span> <span class="mi">80</span><span class="o">*</span><span class="p">(</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">C5</span> <span class="o">+</span> <span class="mi">54</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="p">)))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">C3</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="n">C4</span> <span class="o">+</span> <span class="mi">35</span><span class="o">*</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">112</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">30</span><span class="o">*</span><span class="p">(</span><span class="n">C2</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">C3</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">C4</span> <span class="o">-</span> <span class="mi">50</span><span class="o">*</span><span class="n">C5</span> <span class="o">+</span> <span class="mi">105</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">15</span><span class="o">*</span><span class="p">(</span><span class="n">C1</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">C2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">C3</span> <span class="o">-</span> <span class="mi">16</span><span class="o">*</span><span class="n">C4</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">C5</span> <span class="o">-</span> <span class="mi">36</span><span class="o">*</span><span class="n">C6</span><span class="p">)</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">5.</span><span class="o">*</span><span class="n">zmax</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.stats.crossing.get_Chebyshev_T" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_Chebyshev_T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Ci</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.stats.crossing.get_Chebyshev_T" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get a Chebyshev Polynomial expansion for a given set of coefficients.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>x</code></td>
+        <td><code>float | np.ndarray</code></td>
+        <td><p>an array of values where to compute</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>Ci</code></td>
+        <td><code>list | np.ndarray</code></td>
+        <td><p>list or array with Chebyshev coefficients</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>callable</code></td>
+      <td><p>A callable to be evualuated at points <code>x</code></p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_Chebyshev_T</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">float</span><span class="o">|</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">Ci</span><span class="p">:</span><span class="nb">list</span><span class="o">|</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a Chebyshev Polynomial expansion for a given set of coefficients.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float | np.ndarray): an array of values where to compute</span>
+<span class="sd">        Ci (list | np.ndarray): list or array with Chebyshev coefficients</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        callable: A callable to be evualuated at points `x`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cheb</span> <span class="o">=</span> <span class="n">Chebyshev</span><span class="p">(</span><span class="n">Ci</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">cheb</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.stats.crossing.get_samples_crossing_fde" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_samples_crossing_fde</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">samples_gd</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_fde" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the dark energy evolution from MCMC samples of the Chebyshev coefficients</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>z</code></td>
+        <td><code>np.ndarray</code></td>
+        <td><p>array with redshift values</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>samples_gd</code></td>
+        <td><code>dict</code></td>
+        <td><p>a dictionary with getdist instances. They keys in the dictionary are used as labels for each chains.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>order</code></td>
+        <td><code>int</code></td>
+        <td><p>The order of the polynomial expansion of fde(z)=
+ho_{
+m DE}(). Defaults to 4.</p></td>
+        <td><code>4</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>a dictionary containing the corresponding samples of fde(z) for each chain.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_fde</span><span class="p">(</span><span class="n">z</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution from MCMC samples of the Chebyshev coefficients</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        z (np.ndarray): array with redshift values</span>
+<span class="sd">        samples_gd (dict): a dictionary with getdist instances. They keys in the dictionary are used as labels for each chains.</span>
+<span class="sd">        order (int, optional): The order of the polynomial expansion of fde(z)=\rho_{\rm DE}(). Defaults to 4.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: a dictionary containing the corresponding samples of fde(z) for each chain.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coeffs</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]</span>
+    <span class="n">samples_hyper</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">samples</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coeffs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_gd</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">crossing_fde</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">get_Chebyshev_T</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">Ci</span><span class="p">)(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">Ci</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">samples</span><span class="p">)])</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_hyper</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="n">crossing_fde</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.stats.crossing.get_samples_crossing_w" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_samples_crossing_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">samples_gd</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">return_fde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.stats.crossing.get_samples_crossing_w" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the dark energy evolution 
+..math::
+    f_{
+m DE}(z) = 
+ho_{
+m DE}(z)/
+ho_{
+m DE,0}
+    for a given set of Chebyshev coefficients in the expansion of 
+..math::
+    w(z)=\sum_i^Nc_i T_i(x)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>z</code></td>
+        <td><code>_type_</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>samples_gd</code></td>
+        <td><code>dict</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>order</code></td>
+        <td><code>int</code></td>
+        <td><p><em>description</em>. Defaults to 4.</p></td>
+        <td><code>4</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fde</code></td>
+        <td><code>bool</code></td>
+        <td><p><em>description</em>. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p><em>description</em></p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/stats/crossing.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_samples_crossing_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">samples_gd</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">return_fde</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the dark energy evolution </span>
+<span class="sd">    ..math::</span>
+<span class="sd">        f_{\rm DE}(z) = \rho_{\rm DE}(z)/\rho_{\rm DE,0}</span>
+<span class="sd">        for a given set of Chebyshev coefficients in the expansion of </span>
+<span class="sd">    ..math::</span>
+<span class="sd">        w(z)=\sum_i^Nc_i T_i(x)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        z (_type_): _description_</span>
+<span class="sd">        samples_gd (dict): _description_</span>
+<span class="sd">        order (int, optional): _description_. Defaults to 4.</span>
+<span class="sd">        return_fde (bool, optional): _description_. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: _description_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coeffs</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]</span>
+    <span class="n">samples_hyper</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">samples</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coeffs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_gd</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">crossing_w</span><span class="o">=</span><span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">get_Chebyshev_T</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">Ci</span><span class="p">)(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">Ci</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">samples</span><span class="p">)])</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_hyper</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">crossing_fde</span><span class="o">=</span><span class="p">{</span><span class="n">lbl</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">analytical_fde_from_w</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="o">*</span><span class="n">Ci</span><span class="p">)</span> <span class="k">for</span> <span class="n">Ci</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">samples</span><span class="p">)])</span> <span class="k">for</span> <span class="n">lbl</span><span class="p">,</span><span class="n">samples</span> <span class="ow">in</span> <span class="n">samples_hyper</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">if</span> <span class="n">return_fde</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">crossing_w</span><span class="p">,</span><span class="n">crossing_fde</span>
+    <span class="k">return</span> <span class="n">crossing_w</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 
