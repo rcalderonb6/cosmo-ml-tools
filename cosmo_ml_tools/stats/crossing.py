@@ -52,7 +52,7 @@ def get_samples_crossing_fde(z:np.ndarray,samples_gd:dict,order:int=4) -> dict:
     return crossing_fde
 
 def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -> dict:
-    """
+    r"""
     Get the dark energy evolution.
 
          $$f_\mathrm{DE}(z) = \frac{\rho_{\mathrm{DE}}(z)}{\rho_{\mathrm{DE},0}}$$
