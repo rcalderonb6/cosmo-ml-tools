@@ -52,12 +52,18 @@ def get_samples_crossing_fde(z:np.ndarray,samples_gd:dict,order:int=4) -> dict:
     return crossing_fde
 
 def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -> dict:
-    """Get the dark energy evolution 
-    ..math::
-        f_{\rm DE}(z) = \rho_{\rm DE}(z)/\rho_{\rm DE,0}
-        for a given set of Chebyshev coefficients in the expansion of 
-    ..math::
-        w(z)=\sum_i^Nc_i T_i(x)
+    """
+    Get the dark energy evolution.
+
+    .. math::
+
+        f_{\rm DE}(z) = \frac{\rho_{\rm DE}(z)}{\rho_{\rm DE,0}}
+
+    for a given set of Chebyshev coefficients in the expansion of 
+
+    .. math::
+
+        w(z) = \sum_i^N c_i T_i(x)
 
     Args:
         z (_type_): _description_
@@ -68,6 +74,7 @@ def get_samples_crossing_w(z,samples_gd:dict,order:int=4,return_fde:bool=True) -
     Returns:
         dict: _description_
     """
+
     coeffs=[f'C{i}' for i in range(order)]
     samples_hyper={label: np.array([samples[c] for c in coeffs]).T for label,samples in samples_gd.items()}
     crossing_w={label: np.array([-get_Chebyshev_T(z,Ci)(z) for Ci in tqdm(samples)]) for label,samples in samples_hyper.items()}
