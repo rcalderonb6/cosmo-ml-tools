@@ -31,3 +31,7 @@ class MCBase(ABC):
             fig: An instance of the matplotlib class
         """
         ...
+    
+    @property
+    def logZ(self):
+        raise NotImplementedError

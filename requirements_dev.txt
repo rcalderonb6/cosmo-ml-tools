@@ -29,3 +29,5 @@ pygments
 pymdown-extensions
 numpyro
 harmonic
+pocomc
+classy
