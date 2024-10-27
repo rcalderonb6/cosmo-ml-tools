@@ -3,7 +3,6 @@ from cobaya.yaml import yaml_load
 
 def _find_file(filename):
     """Find the file path, first checking if it exists and then looking in the ``external`` directory."""
-    import os
     if os.path.exists(filename):
         path = filename
     else:
