@@ -1,5 +1,6 @@
 numpy
 jax
+cobaya
 getdist
 matplotlib
 

@@ -34,7 +34,7 @@ all = [
 ]
 
 extra = [
-    "pandas","cobaya","numpyro","harmonic"
+    "pandas","cobaya","getdist","numpyro","harmonic","pocomc"
 ]
 
 
