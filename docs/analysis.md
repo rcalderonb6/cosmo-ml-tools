@@ -1,3 +1,3 @@
 # Analysis module
 
-::: cosmo_ml_tools.analysis.chain
+::: cosmo_ml_tools.analysis
