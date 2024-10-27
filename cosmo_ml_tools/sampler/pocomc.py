@@ -2,12 +2,13 @@ from .ensemble import EnsembleBase
 from cobaya.model import get_model
 import pocomc as pc
 from scipy.stats import uniform,norm
+
 class PocoMCBase(EnsembleBase):
     """
     PocoMC Base Class
     """
     def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs:dict|None=None):
-        super().__init__(ini_file,engine,sampler_kwargs)
+        # super().__init__(ini_file,engine,sampler_kwargs)
         self._priors=get_priors_from_cobaya(self.info)
         self._vectorized=True if 'vectorize' in self.sampler_kwargs.keys() else False
         
@@ -17,7 +18,8 @@ class PocoMCBase(EnsembleBase):
                                 **self.sampler_kwargs)
         
     def log_likelihood(self,*args,**kw_args):
-        raise NotImplementedError
+        pass
+        # raise NotImplementedError
     
     @property
     def logZ(self):
@@ -36,7 +38,7 @@ class PocoMCBase(EnsembleBase):
 class PocoMCobaya(PocoMCBase):
         
     def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs:dict|None=None):
-        super().__init__(ini_file,engine,sampler_kwargs)
+        # super().__init__(ini_file,engine,sampler_kwargs)
         self.model=get_model(self.info)
         
     def log_likelihood(self,theta):
