@@ -1,9 +1,9 @@
 from .base import MCBase
-from utils.file import _initialize_helper
+from utils.file import initialize_helper
 
 class EnsembleBase(MCBase):
     """
-    Base Class for an Ensemble Sampler
+    Base Class for an Ensemble Sampler.
     """
     # def __init__(self,ini_file,engine:str,sampler_kwargs:dict):
     #     # super().__init__(ini_file,engine,sampler_kwargs)

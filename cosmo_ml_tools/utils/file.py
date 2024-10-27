@@ -83,7 +83,7 @@ def _is_ini(filename):
 def _is_bestfit(filename):
     return True if '.bestfit' in filename else False
 
-def _initialize_helper(ini_file:str|dict) -> dict:
+def initialize_helper(ini_file:str|dict) -> dict:
     """Helper function commonly used in the __init__ method.
 
     Args:
