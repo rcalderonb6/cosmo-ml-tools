@@ -10,7 +10,7 @@ from cobaya.yaml import yaml_load
 try:
     from classy import Class
 except ModuleNotFoundError:
-    print('Class is not installed in the current environement!')
+    print('Class is not installed in the current environment!')
 
 class Classy(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""

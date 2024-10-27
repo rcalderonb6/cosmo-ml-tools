@@ -7,11 +7,11 @@ def get_bestfit(samples_gd,params):
     """Get the best-fit chi2 values and corresponding parameter values from the chains.
 
     Args:
-        samples_gd (dict): a dictionnary containing the GetDist samples with labels as keys
+        samples_gd (dict): a dictionary containing the GetDist samples with labels as keys
         params (list): a list of requested cosmological parameters
 
     Returns:
-        tuple: chi2 values and corresponding dictionnary with best-fit parameters
+        tuple: chi2 values and corresponding dictionary with best-fit parameters
     """
     chi2_min={label: samples['chi2'].min() for label,samples in samples_gd.items()}
     bf_params={label: np.array([samples[p][samples['chi2']==chi2_min[label]][0] for p in params]) for label,samples in samples_gd.items()}
