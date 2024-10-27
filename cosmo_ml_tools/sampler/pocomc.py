@@ -7,7 +7,7 @@ class PocoMCBase(EnsembleBase):
     """
     PocoMC Base Class
     """
-    def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs:dict|None=None):
+    def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs=None):
         # super().__init__(ini_file,engine,sampler_kwargs)
         self._priors=get_priors_from_cobaya(self.info)
         self._vectorized=True if 'vectorize' in self.sampler_kwargs.keys() else False
@@ -37,7 +37,7 @@ class PocoMCBase(EnsembleBase):
 
 class PocoMCobaya(PocoMCBase):
         
-    def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs:dict|None=None):
+    def __init__(self,ini_file:str,engine:str='pocomc',sampler_kwargs=None):
         # super().__init__(ini_file,engine,sampler_kwargs)
         self.model=get_model(self.info)
         
