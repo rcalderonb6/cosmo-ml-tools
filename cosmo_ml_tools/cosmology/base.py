@@ -40,7 +40,8 @@ class BoltzmannBase(ABC):
         
     @abstractmethod
     def store(self,filename) -> None:
-        """Store the requested outputs in a given folder
+        """
+        Store the requested outputs in a given folder
         """
         ...
         
