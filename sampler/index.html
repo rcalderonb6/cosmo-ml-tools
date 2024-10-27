@@ -1366,17 +1366,17 @@ EnsembleBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_t
 
     <div class="doc doc-contents ">
 
-      <p>Base Class for an Ensemble Sampler</p>
+      <p>Base Class for an Ensemble Sampler.</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/sampler/ensemble.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">EnsembleBase</span><span class="p">(</span><span class="n">MCBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Base Class for an Ensemble Sampler</span>
+<span class="sd">    Base Class for an Ensemble Sampler.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># def __init__(self,ini_file,engine:str,sampler_kwargs:dict):</span>
-    <span class="c1">#     # super().__init__()</span>
-    <span class="c1">#     self.info=self._initialize_helper(ini_file)</span>
+    <span class="c1">#     # super().__init__(ini_file,engine,sampler_kwargs)</span>
+    <span class="c1">#     self.info=_initialize_helper(ini_file)</span>
     <span class="c1">#     self.sampler_kwargs=sampler_kwargs</span>
     <span class="c1">#     self.out_dir=self.info[&#39;output&#39;] if &#39;output&#39; in self.info.keys() else None</span>
     <span class="c1">#     self._priors=None </span>
