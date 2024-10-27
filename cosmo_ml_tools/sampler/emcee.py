@@ -1,6 +1,9 @@
 from .ensemble import EnsembleBase
+import emcee
 
 class EMCEE(EnsembleBase):
-     
-     def __init__(self):
-         pass
+    """
+    EMCEE Base Class
+    """
+    def __init__(self):
+        pass
