@@ -47,6 +47,17 @@ def compute_evidence(samples, ndim :int ,
     print(f'ln inverse evidence (harmonic) = {-ln_inv_evidence} +/- {err_ln_inv_evidence}')
     return
 
+# from sampler.pocomc import PocoMCBase
+
+# def evidence_with_pocomc(info_yaml:str):
+#     class Sampler(PocoMCBase):
+        
+#         def log_likelihood(self,):
+#             # self.
+    
+    
+#     return
+
 if __name__=='__main__':
     
     compute_evidence()
