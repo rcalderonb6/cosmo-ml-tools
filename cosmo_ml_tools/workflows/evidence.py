@@ -8,7 +8,7 @@ import harmonic as hm
     
 def compute_evidence(samples, ndim :int , 
          model: str = 'NVP', N_chains=4,epochs_num=20,
-         temperature=0.7,training_proportion=0.5,
+         temperature=0.7,training_proportion=0.5, verbose=True,
          **hm_kwargs
          ):
     
@@ -29,7 +29,7 @@ def compute_evidence(samples, ndim :int ,
         print('Model not yet implemented')
         
     # Train model
-    model.fit(chains_train.samples, epochs=epochs_num, verbose= True)
+    model.fit(chains_train.samples, epochs=epochs_num, verbose=verbose)
     
     samples = samples.reshape((-1, ndim))
     samp_num = samples.shape[0]
@@ -45,7 +45,7 @@ def compute_evidence(samples, ndim :int ,
     err_ln_inv_evidence = ev.compute_ln_inv_evidence_errors()
     
     print(f'ln inverse evidence (harmonic) = {-ln_inv_evidence} +/- {err_ln_inv_evidence}')
-    return
+    return -ln_inv_evidence
 
 # from sampler.pocomc import PocoMCBase
 
