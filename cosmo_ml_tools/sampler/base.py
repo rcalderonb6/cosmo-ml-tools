@@ -32,6 +32,3 @@ class MCBase(ABC):
         """
         ...
     
-    @property
-    def logZ(self):
-        raise NotImplementedError

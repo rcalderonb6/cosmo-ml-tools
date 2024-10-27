@@ -30,4 +30,4 @@ pymdown-extensions
 numpyro
 harmonic
 pocomc
-emcee
+

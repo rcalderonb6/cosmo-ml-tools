@@ -1,3 +1,3 @@
 # Sampler module
 
-::: cosmo_ml_tools.sampler
+::: cosmo_ml_tools.sampler.pocomc
