@@ -7,10 +7,10 @@ from .base import BoltzmannBase
 from .constants import *
 from utils.file import _initialize_helper
 from cobaya.yaml import yaml_load
-try:
-    from classy import Class
-except ModuleNotFoundError:
-    print('Class is not installed in the current environment!')
+# try:
+#     from classy import Class
+# except ModuleNotFoundError:
+#     print('Class is not installed in the current environment!')
 
 class Classy(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""
@@ -80,11 +80,12 @@ def get_classy(info:dict,other_info:dict|None=None,verbose=0):
         Class instance: a Classy object with computations stored in it.
     """
     # _classy_verbose(verbose)
-    m=Class()
-    m.set(info)
-    if other_info is not None: m.set(other_info)
-    m.compute()
-    return m
+    # m=Class()
+    # m.set(info)
+    # if other_info is not None: m.set(other_info)
+    # m.compute()
+    # return m
+    pass
 
 def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict:
     """Get the (un)lensed total CMB power spectra and lensing power spectrum
