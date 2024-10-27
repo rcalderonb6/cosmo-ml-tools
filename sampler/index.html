@@ -1374,12 +1374,12 @@ EnsembleBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_t
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base Class for an Ensemble Sampler.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># def __init__(self,ini_file,engine:str,sampler_kwargs:dict):</span>
-    <span class="c1">#     # super().__init__(ini_file,engine,sampler_kwargs)</span>
-    <span class="c1">#     self.info=_initialize_helper(ini_file)</span>
-    <span class="c1">#     self.sampler_kwargs=sampler_kwargs</span>
-    <span class="c1">#     self.out_dir=self.info[&#39;output&#39;] if &#39;output&#39; in self.info.keys() else None</span>
-    <span class="c1">#     self._priors=None </span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ini_file</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">sampler_kwargs</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># super().__init__(ini_file,engine,sampler_kwargs)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_kwargs</span><span class="o">=</span><span class="n">sampler_kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;output&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_priors</span><span class="o">=</span><span class="kc">None</span> 
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -1393,6 +1393,7 @@ EnsembleBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_t
 
 
   <div class="doc doc-children">
+
 
 
 
