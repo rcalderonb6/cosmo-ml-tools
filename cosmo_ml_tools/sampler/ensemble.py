@@ -1,5 +1,5 @@
 from .base import MCBase
-from utils.file import initialize_helper
+from ..utils.file import initialize_helper
 
 class EnsembleBase(MCBase):
     """
