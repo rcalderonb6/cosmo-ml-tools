@@ -646,6 +646,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      classy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="classy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.Classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.get_Cl" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_Cl()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.get_classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_classy()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.cosmology.tmp" class="md-nav__link">
     <span class="md-ellipsis">
       tmp
@@ -1027,6 +1069,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      classy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="classy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.Classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.get_Cl" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_Cl()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.get_classy" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_classy()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.cosmology.tmp" class="md-nav__link">
     <span class="md-ellipsis">
       tmp
@@ -1181,8 +1265,6 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Abstract Base Class for the Boltzmann Solver class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">pass</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1234,7 +1316,6 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 
 
   <div class="doc doc-children">
-
 
 
 
@@ -1466,6 +1547,322 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 
   </div>
 
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.cosmology.classy" class="doc doc-heading">
+        <code>classy</code>
+
+
+
+<a href="#cosmo_ml_tools.cosmology.classy" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.classy.Classy" class="doc doc-heading">
+        <code>
+Classy            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.cosmology.base.BoltzmannBase" href="#cosmo_ml_tools.cosmology.base.BoltzmannBase">BoltzmannBase</a>)
+        </code>
+
+
+
+<a href="#cosmo_ml_tools.cosmology.classy.Classy" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Base Class for the Boltzmann solver Class and its extensions</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Classy</span><span class="p">(</span><span class="n">BoltzmannBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base Class for the Boltzmann solver Class and its extensions&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="c1"># Handle the info variable according to the type and return a dictionary</span>
+        <span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">=</span><span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_H_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1/Mpc&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                         <span class="s1">&#39;km/s/Mpc&#39;</span> <span class="p">:</span> <span class="n">C_KMS</span><span class="p">,</span>
+                         <span class="s1">&#39;dimensionless&#39;</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Hubble</span><span class="p">(</span><span class="mi">0</span><span class="p">)}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="o">=</span><span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">Hubble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">z</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;km/s/Mpc&#39;</span><span class="p">):</span>
+        <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Hubble</span><span class="p">(</span><span class="n">zi</span><span class="p">)</span> <span class="k">for</span> <span class="n">zi</span> <span class="ow">in</span> <span class="n">z</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H_units</span><span class="p">[</span><span class="n">units</span><span class="p">]</span> <span class="o">*</span> <span class="n">H</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;muK2&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_Cl</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="n">ell_factor</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="n">lensed</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">H0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">1e2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_g</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_b</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega0_cdm</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_k</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega0_k</span><span class="p">()</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.classy.get_Cl" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_Cl</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span> <span class="n">ell_factor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lensed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;muK2&#39;</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.classy.get_Cl" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the (un)lensed total CMB power spectra and lensing power spectrum</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>cosmo</code></td>
+        <td><code>_type_</code></td>
+        <td><p>An instance of the Class class</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>ell_factor</code></td>
+        <td><code>bool</code></td>
+        <td><p>whether to include the l(l+1)^n factor. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>lensed</code></td>
+        <td><code>bool</code></td>
+        <td><p>whether to retrieve the lensed- or unlensed-Cl's. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>units</code></td>
+        <td><code>str</code></td>
+        <td><p>FIRAS normalization to µK^2. Defaults to 'muK2'.</p></td>
+        <td><code>&#39;muK2&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p><em>description</em></p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_Cl</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">ell_factor</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">lensed</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;muK2&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the (un)lensed total CMB power spectra and lensing power spectrum</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        cosmo (_type_): An instance of the Class class</span>
+<span class="sd">        ell_factor (bool, optional): whether to include the l(l+1)^n factor. Defaults to True.</span>
+<span class="sd">        lensed (bool, optional): whether to retrieve the lensed- or unlensed-Cl&#39;s. Defaults to True.</span>
+<span class="sd">        units (str, optional): FIRAS normalization to µK^2. Defaults to &#39;muK2&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: _description_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Set the normalization to Firas T_0 measurements</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">T0_FIRAS</span><span class="o">**</span><span class="mi">2</span> <span class="k">if</span> <span class="n">units</span><span class="o">==</span><span class="s1">&#39;muK2&#39;</span> <span class="k">else</span> <span class="mf">1.</span>
+
+    <span class="c1"># Retrieve Cl&#39;s from Class</span>
+    <span class="n">Cls</span><span class="o">=</span><span class="n">cosmo</span><span class="o">.</span><span class="n">raw_cl</span><span class="p">()</span> <span class="k">if</span> <span class="n">lensed</span> <span class="k">else</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">raw_cl</span><span class="p">()</span>
+
+    <span class="c1"># Remove first two multipoles and scale accordingly</span>
+    <span class="n">l</span><span class="o">=</span><span class="n">Cls</span><span class="p">[</span><span class="s1">&#39;ell&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">l_factor</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">TWO_PI</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tt&#39;</span><span class="p">,</span><span class="s1">&#39;te&#39;</span><span class="p">,</span><span class="s1">&#39;et&#39;</span><span class="p">,</span><span class="s1">&#39;ee&#39;</span><span class="p">]}</span>
+    <span class="n">l_factor</span><span class="p">[</span><span class="s1">&#39;pp&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">TWO_PI</span>
+    <span class="n">l_factor</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="p">(</span><span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">TWO_PI</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tp&#39;</span><span class="p">,</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span><span class="s1">&#39;ep&#39;</span><span class="p">,</span><span class="s1">&#39;pe&#39;</span><span class="p">]})</span>
+
+    <span class="k">return</span>  <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">norm</span> <span class="o">*</span> <span class="n">l_factor</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">*</span> <span class="n">val</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">Cls</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.classy.get_classy" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">other_info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.classy.get_classy" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Get an instance of the Class class and compute observables requested in the <code>info</code> dictionary.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>info</code></td>
+        <td><code>dict</code></td>
+        <td><p>common settings in a dictionary format</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>other_info</code></td>
+        <td><code>dict | None</code></td>
+        <td><p>Additional run-specific/precision settings. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Class instance</code></td>
+      <td><p>a Classy object with computations stored in it.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">other_info</span><span class="p">:</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an instance of the Class class and compute observables requested in the `info` dictionary.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        info (dict): common settings in a dictionary format</span>
+<span class="sd">        other_info (dict | None, optional): Additional run-specific/precision settings. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Class instance: a Classy object with computations stored in it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># _classy_verbose(verbose)</span>
+    <span class="c1"># m=Class()</span>
+    <span class="c1"># m.set(info)</span>
+    <span class="c1"># if other_info is not None: m.set(other_info)</span>
+    <span class="c1"># m.compute()</span>
+    <span class="c1"># return m</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 

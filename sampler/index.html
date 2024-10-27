@@ -695,6 +695,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="PocoMCBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      samples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.get_priors_from_cobaya" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_priors_from_cobaya()
+    </span>
+  </a>
+  
 </li>
         
       </ul>
@@ -1028,6 +1052,30 @@
   <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase" class="md-nav__link">
     <span class="md-ellipsis">
       PocoMCBase
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PocoMCBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      samples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.get_priors_from_cobaya" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_priors_from_cobaya()
     </span>
   </a>
   
@@ -1500,15 +1548,161 @@ PocoMCBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_too
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    PocoMC Base Class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ini_file</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">engine</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;pocomc&#39;</span><span class="p">,</span><span class="n">sampler_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">sampler_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_priors</span><span class="o">=</span><span class="n">get_priors_from_cobaya</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vectorized</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="s1">&#39;vectorize&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">False</span>
+
+        <span class="c1"># PocoMC Sampler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">Sampler</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">priors</span><span class="p">,</span>
+                                <span class="n">likelihood</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood</span><span class="p">,</span>
+                                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler_kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kw_args</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logz</span><span class="p">,</span> <span class="n">logz_err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">evidence</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">logz</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">samples</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        MCMC samples with unit weights</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">samples</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">samples</span>
 </code></pre></div>
         </details>
 
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="cosmo_ml_tools.sampler.pocomc.PocoMCBase.samples" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">samples</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.samples" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>MCMC samples with unit weights</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
   </div>
 
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.sampler.pocomc.get_priors_from_cobaya" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_priors_from_cobaya</span><span class="p">(</span><span class="n">info</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.sampler.pocomc.get_priors_from_cobaya" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Generate Priors in PocoMC format from a cobaya-like info dictionary</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>info</code></td>
+        <td><code>dict</code></td>
+        <td><p>priors and settings for the run</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Prior</code></td>
+      <td><p>an instance of the PocoMC.Prior class</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/sampler/pocomc.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_priors_from_cobaya</span><span class="p">(</span><span class="n">info</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate Priors in PocoMC format from a cobaya-like info dictionary</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        info (dict): priors and settings for the run</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Prior: an instance of the PocoMC.Prior class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">priors</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">parameter</span><span class="p">,</span><span class="n">settings</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">prior</span><span class="o">=</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;prior&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;norm&#39;</span> <span class="ow">in</span> <span class="n">prior</span><span class="p">:</span>
+            <span class="n">loc</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="p">[</span><span class="n">prior</span><span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span><span class="s1">&#39;scale&#39;</span><span class="p">]]</span>
+            <span class="n">priors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="n">scale</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lower_bound</span><span class="o">=</span><span class="n">prior</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">prior</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">lower_bound</span>
+            <span class="n">priors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span><span class="n">width</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">pc</span><span class="o">.</span><span class="n">Prior</span><span class="p">(</span><span class="n">priors</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 
