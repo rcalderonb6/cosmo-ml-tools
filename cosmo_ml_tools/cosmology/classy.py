@@ -223,7 +223,7 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
         l_factor['pp']= (l*(l+1))**2 / TWO_PI
         l_factor.update({key: (l*(l+1))**(3/2) / TWO_PI for key in ['tp','pt','ep','pe']})
     else:
-        lfactor={key:1 for key in ['tt','te','et','ee','tp','pt','ep','pe','pp']}
+        lfactor={key:1 for key in ['tt','te','et','ee','tp','pt','ep','pe','pp','bb']}
         
     return  {key: norm * l_factor[key] * val[2:] for key,val in Cls.items()}
 
