@@ -29,7 +29,7 @@ class Classy(BoltzmannBase):
         self._name = name
         
         # Handle the info variable according to the type and return a dictionary
-        info=initialize_helper(info)
+        self.info=initialize_helper(info)
         
         if cosmo is None:
             self.cosmo=get_classy(info,other_info=other_info)
@@ -88,7 +88,7 @@ class Classy(BoltzmannBase):
            }
         Omega_of_z = densities[component.lower()] / self.rho_crit
         return Omega_of_z
-    
+
     @property
     def z(self):
         return self.background['z']
@@ -101,6 +101,10 @@ class Classy(BoltzmannBase):
     def background(self):
         return self._background()
     
+    @property
+    def ell(self):
+        return self.Cls['ell']
+        
     @property
     def Cls(self,ell_factor=True,lensed=True,units='muK2'):
         return get_Cl(self.cosmo,ell_factor=ell_factor,lensed=lensed,units=units)
