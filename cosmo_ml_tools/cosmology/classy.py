@@ -197,7 +197,7 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
         units (str, optional): FIRAS normalization to µK^2. Defaults to 'muK2'.
 
     Returns:
-        dict: a dictionnary with the requested Cl's (2 < l <= l_max), in the requested units.
+        dict: a dictionary with the requested Cl's (2 < l <= l_max), in the requested units.
     """
     # Set the normalization to Firas T_0 measurements
     norm = T0_FIRAS**2 if units=='muK2' else 1.

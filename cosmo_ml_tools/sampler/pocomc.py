@@ -58,9 +58,12 @@ def get_priors_from_cobaya(info:dict):
     priors=[]
     for parameter,settings in info['params'].items():
         prior=settings['prior']
-        if 'norm' in prior:
-            loc,scale=[prior['norm'][key] for key in ['loc','scale']]
-            priors.append(norm(loc,scale))
+        if 'dist' in prior.keys():
+            if prior['dist']=='norm':
+                loc,scale=[prior[key] for key in ['loc','scale']]
+                priors.append(norm(loc,scale))
+            else:
+                print('Distribution not yet implemented in Cosmo-ML-Tools.')
         else:
             lower_bound=prior['min']
             width=prior['max']-lower_bound
