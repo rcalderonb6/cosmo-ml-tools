@@ -8,14 +8,14 @@ class MCBase(ABC):
     @abstractmethod
     def run(self,*args,**kwargs):
         """
-        Start the sampling process
+        Start the sampling process from an initial guess.
         """
         ...
     
     @abstractmethod 
     def resume(self,*args,**kwargs):
         """
-        Resume the sampling process
+        Resume the sampling process from a set of precomputed points.
         """
         ...
             
@@ -28,7 +28,7 @@ class MCBase(ABC):
             params (list): A list of parameters to plot.
         
         Returns:
-            fig: An instance of the matplotlib class
+            fig: An instance of the matplotlib class.
         """
         ...
     
