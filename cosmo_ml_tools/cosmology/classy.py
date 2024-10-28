@@ -15,21 +15,80 @@ from ..utils.file import initialize_helper
 
 class Classy(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""
-    def __init__(self,info,other_info=None,verbose:int=0) -> None:
+    
+    def __init__(self,info:str|dict|None=None,cosmo=None,other_info=dict|None,verbose:int=0,name:str='name') -> None:
+        """A wrapper for the Boltzmann solvers Class and its extensions.
+
+        Args:
+            info (str | dict): a string pointing to a .ini/.yaml file or python dictionary with the desired class settings/parameters
+            other_info (dict|None, optional): another set of settings passed to class (e.g. precision settings). Defaults to None.
+            verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.
+            name (str, optional): Give a name to the instance of the class.
+        """
+        
+        self._clean_state = True
+        self._name = name
         
         # Handle the info variable according to the type and return a dictionary
         info=initialize_helper(info)
-         
-        self.cosmo=get_classy(info,other_info=other_info)
+        
+        if cosmo is None:
+            self.cosmo=get_classy(info,other_info=other_info)
+        else:
+            self.cosmo=cosmo
+            self.update(info)
+        
+        # self.ba=Background(self.cosmo)
+        # self.pt=Perturbations(self.cosmo)
+        # self.fo=Fourier(self.cosmo)
+        
         self._H_units = {'1/Mpc' : 1, 
                          'km/s/Mpc' : C_KMS,
                          'dimensionless': 1 / self.cosmo.Hubble(0)}
         
-        self._clean_state=True
-            
-    def Hubble(self,z:np.ndarray,units:str='km/s/Mpc'):
-        H=np.array([self.cosmo.Hubble(zi) for zi in z])
+    def Hubble(self,z:float|np.ndarray,units:str='km/s/Mpc'):
+        H=np.array([self.cosmo.Hubble(zi) for zi in z]) if isinstance(z,np.ndarray) else self.cosmo.Hubble(z)
         return self._H_units[units] * H
+    
+    def alpha(self,which:str='M'):
+        return self._alphas[which]
+    
+    def update(self,info:dict) -> None:
+        """
+        Update the values of the cosmological parameters with the provided dictionary and recompute observables.
+        """
+        self.cosmo.set(info)
+        self.cosmo.compute()
+        self._clean_state=False
+    
+    def _background(self):
+        return self.cosmo.get_background()
+    
+    def _alphas(self):
+        return get_alphas(self.cosmo)
+    
+    def Omega_of_z(self,z:float|np.ndarray,component:str):
+        DE_density={'Modified Gravity':self.background['(.)rho_smg'],'Scalar Field':self.background['(.)rho_scf'],'Cosmological Constant':self.cosmo.Omega_Lambda,'Fluid':self.background['(.)rho_fld']}
+        densities={'cdm':self.background['(.)rho_cdm'],'c':self.background['(.)rho_cdm'],
+           'b':self.background['(.)rho_b'],'cb':self.background['(.)rho_cdm']+self.background['(.)rho_b'],
+           'm':self.background['(.)rho_cdm']+self.background['(.)rho_b']+self.background['(.)rho_ur'],'ur':self.background['(.)rho_ur'],
+           'k':self.Omega_k*(1+z)**2/self.Hubble(0,units='dimensionless'),'g':self.background['(.)rho_g'],
+           'de':DE_density[self.DE_type],
+           }
+        Omega_of_z = densities[component.lower()] / self.rho_crit
+        return Omega_of_z
+    
+    @property
+    def z(self):
+        return self.background['z']
+    
+    @property
+    def rho_crit(self):
+        return self.background['(.)rho_crit']
+    
+    @property
+    def background(self):
+        return self._background()
     
     @property
     def Cls(self,ell_factor=True,lensed=True,units='muK2'):
@@ -56,9 +115,60 @@ class Classy(BoltzmannBase):
         return self.cosmo.Omega0_cdm()
     
     @property
+    def Omega_cdm(self):
+        return self.cosmo.Omega0_cdm()
+    
+    @property
     def Omega_k(self):
         return self.cosmo.Omega0_k()
+    
+    @property
+    def Omega_DE(self):
+        Omega_DE={'Modified Gravity':self.background['(.)rho_smg'],
+                     'Scalar Field':self.background['(.)rho_scf'],
+                     'Cosmological Constant':self.cosmo.Omega_Lambda,
+                     'Fluid':self.background['(.)rho_fld']}
+        return Omega_DE[self.DE_type]
+    
+    @property
+    def rdrag(self):
+        return self.background['comov.snd.hrz.']
+    
+    @property
+    def _is_fluid(self)->bool:
+        if 'Omega_smg' in self.info.keys():
+            return (self.info['Omega_Lambda']==0 and self.info['Omega_smg']==0)
+        else:
+            return (self.info['Omega_Lambda']==0 and self.info['Omega_scf']==0)
+    
+    @property
+    def _is_scf(self)->bool:
+        if 'Omega_smg' in self.info.keys():
+            return False
+        else:
+            return (self.info['Omega_Lambda']==0 and self.info['Omega_fld']==0)
 
+    @property
+    def _is_smg(self)->bool:
+        if 'Omega_smg' in self.info.keys():
+            return (self.info['Omega_Lambda']==0 and self.info['Omega_fld']==0)
+        else:
+            return False
+        
+    @property
+    def DE_type(self):
+        return self._get_DE_type()  
+                
+    def _get_DE_type(self)->str:
+        DE_type='Cosmological Constant'
+        if self._is_fluid:
+            DE_type='Fluid'
+        elif self._is_smg:
+            DE_type='Modified Gravity'
+        elif self._is_scf:
+            DE_type='Scalar Field'        
+        return DE_type      
+    
 def get_classy(info:dict,other_info:dict|None=None,verbose=0):
     """Get an instance of the Class class and compute observables requested in the `info` dictionary.
 
@@ -69,7 +179,6 @@ def get_classy(info:dict,other_info:dict|None=None,verbose=0):
     Returns:
         Class instance: a Classy object with computations stored in it.
     """
-    # _classy_verbose(verbose)
     # m=Class()
     # m.set(info)
     # if other_info is not None: m.set(other_info)
@@ -88,7 +197,7 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
         units (str, optional): FIRAS normalization to µK^2. Defaults to 'muK2'.
 
     Returns:
-        dict: _description_
+        dict: a dictionnary with the requested Cl's (2 < l <= l_max), in the requested units.
     """
     # Set the normalization to Firas T_0 measurements
     norm = T0_FIRAS**2 if units=='muK2' else 1.
@@ -104,4 +213,38 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
     
     return  {key: norm * l_factor[key] * val[2:] for key,val in Cls.items()}
 
+def get_alphas(cosmo) -> dict:
+    """Get the evolution of the alpha functions from hiclass
 
+    Args:
+        cosmo (_type_): An instance of the hi_class/mochi_class class
+    Returns:
+        dict: a dictionary containing the evolution of the alpha functions
+    """    
+    # Retrieve alpha's from Class
+    b = cosmo.get_background()
+    alphas = {k: b[key] for k,key in zip(['M','B','K','T'],['Mpl_running_smg','braiding_smg','kineticity_smg','tensor_excess_smg'])}
+    alpha_H = b['beyond_horndeski_smg'] if 'beyond_horndeski_smg' in b.keys() else np.zeros_like(b['Mpl_running_smg'])
+    alphas.update({'H':alpha_H})
+    return alphas
+
+if __name__=='__main__':
+    from classy import Class
+    
+    settings={'output':'tCl,pCl,lCl,mPk','lensing':'yes'}
+    
+    dic=Class()
+    ini=Class()
+    yaml=Class()
+    # param=Class()
+    
+    info_ini=''
+    info_yaml=''
+    info_dic=settings
+    infos=[info_ini,info_yaml,info_dic]
+    for m,info in zip([ini,yaml,dic],infos):
+        cosmo=Classy(info=info,cosmo=m,name='name')
+        print(cosmo.Cls)
+
+
+    

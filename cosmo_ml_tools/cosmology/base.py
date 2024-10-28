@@ -5,6 +5,10 @@ class BoltzmannBase(ABC):
     Abstract Base Class for the Boltzmann Solver class
     """
     
+    @property
+    def name(self)->None:
+        self._name
+    
     @abstractmethod
     def getInfo(self) -> None:
         """

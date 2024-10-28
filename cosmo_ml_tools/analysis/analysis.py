@@ -6,7 +6,7 @@ class Analysis(AnalysisBase):
     def load(self):
         self._chains=load_chains(self.chains,self.labels)
         
-    def add_chain(self, chain: str, label: str=None, root: str=''):
+    def add_chain(self, chain: str, label: str=None, root: str='',index:int=-1):
         if label is None: 
             label='chain0'
             self._chains.update(load_chains([chain],[label],root=root))

@@ -5,6 +5,7 @@ class ChainBase(ABC):
     Abstract Base Chain Class
     """
     def __init__(self):
+        self._evidence=None
         pass
     
     @abstractmethod
@@ -28,6 +29,12 @@ class ChainBase(ABC):
     def set_label(self):
         """Set the label for the chain"""
         ...
+    
+    @abstractmethod
+    def get_logZ(self):
+        """Get the Bayesian Evidence for the chain"""
+        ...
+    
     
     @abstractmethod
     def set_alias(self):
@@ -67,6 +74,17 @@ class ChainBase(ABC):
         Get the minimum chi2 point from the chain
         """
         ...
+    
+    @property 
+    def logZ(self):
+        """
+        Log-Bayesian Evidence
+        """
+        try:
+            self.get_logZ()
+        except BayesianEvidenceNotFound as err:
+            print(err)
+        
 class AnalysisBase(ABC):
     """
     Abstract Analysis Class
@@ -79,7 +97,10 @@ class AnalysisBase(ABC):
         
     @abstractmethod
     def computeEvidence(self,chain:str=None) -> None:
-        """Compute the Bayesian Evidence for the chains."""
+        """
+        Compute the Bayesian Evidence for the chains using ``Harmonic``.
+        This might be a time-comsuming method, make sure to properly read the documentation
+        """
         ...
         
     @abstractmethod
@@ -90,7 +111,15 @@ class AnalysisBase(ABC):
         ...    
     
     @abstractmethod
-    def add_chain(chain:str,label:str,root:str):
+    def add_chain(chain:str,label:str,root:str,index:int=-1):
+        """Append a chain to the list of loaded chains (at the specified index, default last)
+
+        Args:
+            chain (str): _description_
+            label (str): _description_
+            root (str): _description_
+            index (int): _description_
+        """
         ...
         
     @abstractmethod
@@ -168,3 +197,13 @@ class AnalysisBase(ABC):
         Number of chains loaded.
         """
         return len(self._labels)
+    
+    @property
+    def logZ(self) -> int:
+        """
+        Bayesian Evidence (if computed).
+        """
+        return [c.logZ for c in self._chains]
+
+class BayesianEvidenceNotFound(Exception):
+    pass

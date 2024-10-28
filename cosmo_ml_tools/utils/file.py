@@ -1,6 +1,10 @@
 import os
+import numpy as np
+from functools import partial
 from cobaya.yaml import yaml_load
-
+class FileTypeNotSupported(Exception):
+    pass
+    
 def _find_file(filename):
     """Find the file path, first checking if it exists and then looking in the ``external`` directory."""
     if os.path.exists(filename):
@@ -54,7 +58,6 @@ def load_ini(filename):
 
     return params
 
-
 def load_precision(filename):
     """
     Load a CLASS ``.pre`` file, and return a dictionary of input parameters.
@@ -71,8 +74,36 @@ def load_precision(filename):
     """
     return load_ini(filename)
 
-def load_bf(filename):
+def load_yaml(filename:str,class_format=False):
+    info=yaml_load()
+    if class_format:
+        tmp_info=info.copy()
+        info=tmp_info['params']
+        if 'extra_params' in tmp_info['theory']['classy'].keys():
+            info.update(tmp_info['theory']['classy']['extra_params'])
+    return info
+    
+def load_bf(filename:str):
     raise NotImplementedError
+
+def load_param(filename:str):
+    raise NotImplementedError
+
+def write_bf(bestfit_point:np.ndarray,param_names:list[str]|None=None,out_filename:str='chain.bestfit',override:bool=False):
+    """
+    Write a GetDist-like .bestfit file
+
+    Args:
+        bestfit_point (np.ndarray): array with bestfit values for the parameters.
+        param_names (list[str]|None, optional): a list with the parameter names. Defaults to None, in which case the labels param1,param2,etc are given.
+        out_filename (str, optional): _description_. Defaults to 'chain.bestfit'.
+        override (bool,optional): check for existing .bestfit file and override if True. Defaults to False.
+    """
+    if param_names is None: param_names=[f'param{i}' for i in range(len(bestfit_point))]
+    if override:
+        np.savetxt(out_filename,bestfit_point,header=param_names)
+    else:
+        print('Found existing .bestfile file. Choose another output location/filename or set `override=True` if you want to override the previously stored .bestfit file')
 
 def _is_yaml(filename):
     return True if '.yaml' in filename else False
@@ -83,24 +114,55 @@ def _is_ini(filename):
 def _is_bestfit(filename):
     return True if '.bestfit' in filename else False
 
-def initialize_helper(ini_file:str|dict) -> dict:
-    """Helper function commonly used in the __init__ method.
+def _is_param(filename):
+    return True if '.param' in filename else False
+
+def _get_ini_file_type(ini_file:str):
+    """Helper function to retrieve the initialization file type
 
     Args:
-        ini_file (str|dict): _description_
+        ini_file (str): a string containing the initialization filename/location on disk. 
+        Formats currently supported are: .param, .yaml, .ini, and .bestfit
 
     Returns:
-        dict: a dictionary with the information contained in the ini_file.
+        str: a string determining the type of ini file
     """
-    if isinstance(ini_file, str):
-        if _is_yaml(ini_file):
-            info=yaml_load(ini_file)
-        elif _is_ini(ini_file):
-            info=load_ini(ini_file)
-        elif _is_bestfit(ini_file):
-            info=load_bf(ini_file)
-    elif isinstance(ini_file, dict):
-        pass
+    # .yaml input handling
+    if _is_yaml(ini_file):
+        fmt='yaml'
+    # .ini input handling
+    elif _is_ini(ini_file):
+        fmt='ini'
+    # .param input handling    
+    elif _is_param(ini_file):
+        fmt='mp'
+    # .bestfit input handling    
+    elif _is_bestfit(ini_file):
+        fmt='bf' 
     else:
-        print("Unsupported type")
-    return info
+        print('Initialization file format not found')
+    return fmt
+
+def initialize_helper(ini_file:str|dict,engine='class') -> dict:
+    """Helper function commonly used in the various __init__ methods.
+
+    Args:
+        ini_file (str|dict): The path to an initialization file. Supports .yaml file from Cobaya and .param files from Montepython, as well as .bestfit files from Getdist.
+        engine (str): The engine to assist. Defaults to 'class'.
+
+    Returns:
+        dict: a dictionary with the relevant information contained in the ini_file.
+    """
+    _classy = True if engine in ['classy','class'] else False
+    _file_loader={'yaml': partial(load_yaml,class_format=_classy),'ini':load_ini,'bf':load_bf,'mp':load_param}
+    
+    # If its a string, load the corresponding file from the disk according to its format
+    if isinstance(ini_file, str):
+        fmt=_get_ini_file_type(ini_file)
+        return _file_loader[fmt](ini_file)
+    
+    # If its a dictionary, its already in the correct format and we do nothing
+    elif not isinstance(ini_file, dict):
+        raise FileTypeNotSupported 
+    
+    
