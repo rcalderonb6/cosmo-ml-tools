@@ -223,7 +223,7 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
         l_factor['pp']= (l*(l+1))**2 / TWO_PI
         l_factor.update({key: (l*(l+1))**(3/2) / TWO_PI for key in ['tp','pt','ep','pe']})
     else:
-        lfactor={key:1 for key in ['tt','te','et','ee','tp','pt','ep','pe','pp','bb']}
+        l_factor={key:1 for key in ['tt','te','et','ee','tp','pt','ep','pe','pp','bb']}
         
     return  {key: norm * l_factor[key] * val[2:] for key,val in Cls.items()}
 
@@ -252,10 +252,10 @@ if __name__=='__main__':
     yaml=Class()
     # param=Class()
     
-    info_ini=''
+    info_ini='/Users/rodrigocalderon/Documents/Cosmology/AxiCLASS-master/base_2018_plikHM_TTTEEE_lowl_lowE_lensing.ini'
     info_yaml=''
     info_dic=settings
-    infos=[info_ini,info_yaml,info_dic]
+    infos=[info_ini]#,info_yaml,info_dic]
     for m,info in zip([ini,yaml,dic],infos):
         cosmo=Classy(info=info,cosmo=m,name='name')
         print(cosmo.Cls)
