@@ -38,10 +38,6 @@ class Classy(BoltzmannBase):
             self.cosmo=cosmo
             self.update(info)
         
-        # self.ba=Background(self.cosmo)
-        # self.pt=Perturbations(self.cosmo)
-        # self.fo=Fourier(self.cosmo)
-        
         self._H_units = {'1/Mpc' : 1, 
                          'km/s/Mpc' : C_KMS,
                          'dimensionless': 1 / self.cosmo.Hubble(0)}
@@ -207,10 +203,13 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
     
     # Remove first two multipoles and scale accordingly
     l=Cls['ell'][2:]
-    l_factor = {key: l*(l+1) / TWO_PI for key in ['tt','te','et','ee']}
-    l_factor['pp']= (l*(l+1))**2 / TWO_PI
-    l_factor.update({key: (l*(l+1))**(3/2) / TWO_PI for key in ['tp','pt','ep','pe']})
-    
+    if ell_factor:
+        l_factor = {key: l*(l+1) / TWO_PI for key in ['tt','te','et','ee']}
+        l_factor['pp']= (l*(l+1))**2 / TWO_PI
+        l_factor.update({key: (l*(l+1))**(3/2) / TWO_PI for key in ['tp','pt','ep','pe']})
+    else:
+        lfactor={key:1 for key in ['tt','te','et','ee','tp','pt','ep','pe','pp']}
+        
     return  {key: norm * l_factor[key] * val[2:] for key,val in Cls.items()}
 
 def get_alphas(cosmo) -> dict:
