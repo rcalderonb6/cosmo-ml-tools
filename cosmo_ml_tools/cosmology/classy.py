@@ -12,7 +12,7 @@ from ..utils.file import initialize_helper
 # except ModuleNotFoundError:
 #     print('Class is not installed in the current environment!')
 
-class Classy(BoltzmannBase):
+class ClassEngine(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""
     
     def __init__(self,info:str|dict|None=None,cosmo=None,other_info=dict|None,verbose:int=0,name:str='name') -> None:
@@ -32,9 +32,9 @@ class Classy(BoltzmannBase):
         self.info=initialize_helper(info)
         
         if cosmo is None:
-            self.cosmo=get_classy(info,other_info=other_info)
+            self.cosmo = get_classy(info,other_info=other_info)
         else:
-            self.cosmo=cosmo
+            self.cosmo = cosmo
             self.update(info)
         
         self._H_units = {'1/Mpc' : 1, 
@@ -78,20 +78,42 @@ class Classy(BoltzmannBase):
     def _alphas(self):
         return get_alphas(self.cosmo)
     
-    def Omega_of_z(self,z:float|np.ndarray,component:str):
-        DE_density={'Modified Gravity':self.background['(.)rho_smg'],'Scalar Field':self.background['(.)rho_scf'],'Cosmological Constant':self.cosmo.Omega_Lambda,'Fluid':self.background['(.)rho_fld']}
-        densities={'cdm':self.background['(.)rho_cdm'],'c':self.background['(.)rho_cdm'],
-           'b':self.background['(.)rho_b'],'cb':self.background['(.)rho_cdm']+self.background['(.)rho_b'],
-           'm':self.background['(.)rho_cdm']+self.background['(.)rho_b']+self.background['(.)rho_ur'],'ur':self.background['(.)rho_ur'],
-           'k':self.Omega_k*(1+z)**2/self.Hubble(0,units='dimensionless'),'g':self.background['(.)rho_g'],
-           'de':DE_density[self.DE_type],
-           }
-        Omega_of_z = densities[component.lower()] / self.rho_crit
+    def Omega_of_z(self,component:str):
+        _densities={'cdm':self.rho_cdm,'c':self.rho_cdm,'b':self.rho_b,'cb':self.rho_b+self.rho_c,'m':self.rho_m,'g':self.rho_g,'ur':self.rho_ur,'de':self.rho_de}
+        Omega_of_z = _densities[component.lower()] / self.rho_crit
         return Omega_of_z
-
+    
+    @property
+    def fde(self):
+        return self.rho_de/self.rho_de[-1]
+    
     @property
     def z(self):
         return self.background['z']
+    
+    @property
+    def rho_m(self):
+        return np.array([self.background[f'(.)rho_{k}'] for k in ['b','cdm','ur']]).sum(axis=0)
+    
+    @property
+    def rho_b(self):
+        return self.background['(.)rho_b']   
+    
+    @property
+    def rho_cdm(self):
+        return self.background['(.)rho_cdm']    
+    
+    @property
+    def rho_ur(self):
+        return self.background['(.)rho_ur']    
+    
+    @property
+    def rho_g(self):
+        return self.background['(.)rho_g']
+    
+    @property
+    def rho_de(self):
+        return self.background[self.DE_id]
     
     @property
     def rho_crit(self):
@@ -138,12 +160,16 @@ class Classy(BoltzmannBase):
         return self.cosmo.Omega0_k()
     
     @property
+    def DE_id(self):
+        _DE_KEYS={'Modified Gravity':'(.)rho_smg','Scalar Field':'(.)rho_scf',
+          'Cosmological Constant': '(.)rho_lambda','Fluid':'(.)rho_fld'}
+        return _DE_KEYS[self.DE_type]
+    
+    @property
     def Omega_DE(self):
-        Omega_DE={'Modified Gravity':self.background['(.)rho_smg'],
-                     'Scalar Field':self.background['(.)rho_scf'],
-                     'Cosmological Constant':self.cosmo.Omega_Lambda,
-                     'Fluid':self.background['(.)rho_fld']}
-        return Omega_DE[self.DE_type]
+        if self.DE_type=='Cosmological Constant':
+            return self.cosmo.Omega_Lambda
+        return self.background[self.DE_id][-1]
     
     @property
     def rdrag(self):
@@ -262,8 +288,7 @@ if __name__=='__main__':
     info_dic=settings
     infos=[info_ini]#,info_yaml,info_dic]
     for m,info in zip([ini,yaml,dic],infos):
-        cosmo=Classy(info=info,cosmo=m,name='name')
+        cosmo=ClassEngine(info=info,cosmo=m,name='name')
         print(cosmo.Cls)
 
 
-    
