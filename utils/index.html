@@ -772,6 +772,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.file.write_bf" class="md-nav__link">
+    <span class="md-ellipsis">
+      write_bf()
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -997,6 +1006,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.utils.file.write_bf" class="md-nav__link">
+    <span class="md-ellipsis">
+      write_bf()
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1098,19 +1116,20 @@
 
 
 
+
   <div class="doc doc-object doc-function">
 
 
 
 <h3 id="cosmo_ml_tools.utils.file.initialize_helper" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span></code>
 
 
 <a href="#cosmo_ml_tools.utils.file.initialize_helper" class="headerlink" title="Permanent link">&para;</a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Helper function commonly used in the <strong>init</strong> method.</p>
+      <p>Helper function commonly used in the various <strong>init</strong> methods.</p>
 
 <p><strong>Parameters:</strong></p>
 <table>
@@ -1126,8 +1145,14 @@
       <tr>
         <td><code>ini_file</code></td>
         <td><code>str|dict</code></td>
-        <td><p><em>description</em></p></td>
+        <td><p>The path to an initialization file. Supports .yaml file from Cobaya and .param files from Montepython, as well as .bestfit files from Getdist.</p></td>
         <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>engine</code></td>
+        <td><code>str</code></td>
+        <td><p>The engine to assist. Defaults to 'class'.</p></td>
+        <td><code>&#39;class&#39;</code></td>
       </tr>
   </tbody>
 </table>
@@ -1142,33 +1167,33 @@
   <tbody>
     <tr>
       <td><code>dict</code></td>
-      <td><p>a dictionary with the information contained in the ini_file.</p></td>
+      <td><p>a dictionary with the relevant information contained in the ini_file.</p></td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/utils/file.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function commonly used in the __init__ method.</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function commonly used in the various __init__ methods.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        ini_file (str|dict): _description_</span>
+<span class="sd">        ini_file (str|dict): The path to an initialization file. Supports .yaml file from Cobaya and .param files from Montepython, as well as .bestfit files from Getdist.</span>
+<span class="sd">        engine (str): The engine to assist. Defaults to &#39;class&#39;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        dict: a dictionary with the information contained in the ini_file.</span>
+<span class="sd">        dict: a dictionary with the relevant information contained in the ini_file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_classy</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;classy&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">False</span>
+    <span class="n">_file_loader</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;yaml&#39;</span><span class="p">:</span> <span class="n">partial</span><span class="p">(</span><span class="n">load_yaml</span><span class="p">,</span><span class="n">class_format</span><span class="o">=</span><span class="n">_classy</span><span class="p">),</span><span class="s1">&#39;ini&#39;</span><span class="p">:</span><span class="n">load_ini</span><span class="p">,</span><span class="s1">&#39;bf&#39;</span><span class="p">:</span><span class="n">load_bf</span><span class="p">,</span><span class="s1">&#39;mp&#39;</span><span class="p">:</span><span class="n">load_param</span><span class="p">}</span>
+
+    <span class="c1"># If its a string, load the corresponding file from the disk according to its format</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">_is_yaml</span><span class="p">(</span><span class="n">ini_file</span><span class="p">):</span>
-            <span class="n">info</span><span class="o">=</span><span class="n">yaml_load</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">_is_ini</span><span class="p">(</span><span class="n">ini_file</span><span class="p">):</span>
-            <span class="n">info</span><span class="o">=</span><span class="n">load_ini</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">_is_bestfit</span><span class="p">(</span><span class="n">ini_file</span><span class="p">):</span>
-            <span class="n">info</span><span class="o">=</span><span class="n">load_bf</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">pass</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unsupported type&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">info</span>
+        <span class="n">fmt</span><span class="o">=</span><span class="n">_get_ini_file_type</span><span class="p">(</span><span class="n">ini_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_file_loader</span><span class="p">[</span><span class="n">fmt</span><span class="p">](</span><span class="n">ini_file</span><span class="p">)</span>
+
+    <span class="c1"># If its a dictionary, its already in the correct format and we do nothing</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">FileTypeNotSupported</span> 
 </code></pre></div>
         </details>
     </div>
@@ -1247,6 +1272,7 @@
 
 
 
+
   <div class="doc doc-object doc-function">
 
 
@@ -1284,6 +1310,83 @@
 <span class="sd">        The precision parameters loaded from the file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">load_ini</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="cosmo_ml_tools.utils.file.write_bf" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">write_bf</span><span class="p">(</span><span class="n">bestfit_point</span><span class="p">,</span> <span class="n">param_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_filename</span><span class="o">=</span><span class="s1">&#39;chain.bestfit&#39;</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.utils.file.write_bf" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Write a GetDist-like .bestfit file</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>bestfit_point</code></td>
+        <td><code>np.ndarray</code></td>
+        <td><p>array with bestfit values for the parameters.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>param_names</code></td>
+        <td><code>list[str]|None</code></td>
+        <td><p>a list with the parameter names. Defaults to None, in which case the labels param1,param2,etc are given.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>out_filename</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em>. Defaults to 'chain.bestfit'.</p></td>
+        <td><code>&#39;chain.bestfit&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>override</code></td>
+        <td><code>bool,optional</code></td>
+        <td><p>check for existing .bestfit file and override if True. Defaults to False.</p></td>
+        <td><code>False</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/utils/file.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write_bf</span><span class="p">(</span><span class="n">bestfit_point</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">param_names</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">out_filename</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;chain.bestfit&#39;</span><span class="p">,</span><span class="n">override</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Write a GetDist-like .bestfit file</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bestfit_point (np.ndarray): array with bestfit values for the parameters.</span>
+<span class="sd">        param_names (list[str]|None, optional): a list with the parameter names. Defaults to None, in which case the labels param1,param2,etc are given.</span>
+<span class="sd">        out_filename (str, optional): _description_. Defaults to &#39;chain.bestfit&#39;.</span>
+<span class="sd">        override (bool,optional): check for existing .bestfit file and override if True. Defaults to False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">param_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">param_names</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;param</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bestfit_point</span><span class="p">))]</span>
+    <span class="k">if</span> <span class="n">override</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">out_filename</span><span class="p">,</span><span class="n">bestfit_point</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="n">param_names</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found existing .bestfile file. Choose another output location/filename or set `override=True` if you want to override the previously stored .bestfit file&#39;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>

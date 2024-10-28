@@ -666,6 +666,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_chain()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.analysis.Analysis.load" class="md-nav__link">
     <span class="md-ellipsis">
       load()
@@ -750,6 +759,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      logZ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.add_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_chain()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.computeEvidence" class="md-nav__link">
     <span class="md-ellipsis">
       computeEvidence()
@@ -828,6 +855,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.ChainBase.logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      logZ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.ChainBase.getInfo" class="md-nav__link">
     <span class="md-ellipsis">
       getInfo()
@@ -849,6 +885,15 @@
   <a href="#cosmo_ml_tools.analysis.base.ChainBase.getTable" class="md-nav__link">
     <span class="md-ellipsis">
       getTable()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.ChainBase.get_logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_logZ()
     </span>
   </a>
   
@@ -1233,6 +1278,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_chain()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.analysis.Analysis.load" class="md-nav__link">
     <span class="md-ellipsis">
       load()
@@ -1317,6 +1371,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      logZ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.add_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_chain()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.AnalysisBase.computeEvidence" class="md-nav__link">
     <span class="md-ellipsis">
       computeEvidence()
@@ -1395,6 +1467,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.ChainBase.logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      logZ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.base.ChainBase.getInfo" class="md-nav__link">
     <span class="md-ellipsis">
       getInfo()
@@ -1416,6 +1497,15 @@
   <a href="#cosmo_ml_tools.analysis.base.ChainBase.getTable" class="md-nav__link">
     <span class="md-ellipsis">
       getTable()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.base.ChainBase.get_logZ" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_logZ()
     </span>
   </a>
   
@@ -1720,7 +1810,7 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">=</span><span class="n">load_chains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;chain0&#39;</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">load_chains</span><span class="p">([</span><span class="n">chain</span><span class="p">],[</span><span class="n">label</span><span class="p">],</span><span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">))</span>
@@ -1739,6 +1829,72 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
 
 
 
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Append a chain to the list of loaded chains (at the specified index, default last)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>chain</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>label</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>root</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><code>&#39;&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>index</code></td>
+        <td><code>int</code></td>
+        <td><p><em>description</em></p></td>
+        <td><code>-1</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;chain0&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">load_chains</span><span class="p">([</span><span class="n">chain</span><span class="p">],[</span><span class="n">label</span><span class="p">],</span><span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 
@@ -1846,7 +2002,10 @@ AnalysisBase            (<span title="abc.ABC">ABC</span>)
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the Bayesian Evidence for the chains.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the Bayesian Evidence for the chains using ``Harmonic``.</span>
+<span class="sd">        This might be a time-comsuming method, make sure to properly read the documentation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 
     <span class="nd">@abstractmethod</span>
@@ -1857,7 +2016,15 @@ AnalysisBase            (<span title="abc.ABC">ABC</span>)
         <span class="o">...</span>    
 
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append a chain to the list of loaded chains (at the specified index, default last)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            chain (str): _description_</span>
+<span class="sd">            label (str): _description_</span>
+<span class="sd">            root (str): _description_</span>
+<span class="sd">            index (int): _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 
     <span class="nd">@abstractmethod</span>
@@ -1935,6 +2102,13 @@ AnalysisBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">        Number of chains loaded.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Bayesian Evidence (if computed).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">logZ</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="p">]</span>
 </code></pre></div>
         </details>
 
@@ -2062,8 +2236,102 @@ AnalysisBase            (<span title="abc.ABC">ABC</span>)
 
 
 
+  <div class="doc doc-object doc-attribute">
 
 
+
+<h4 id="cosmo_ml_tools.analysis.base.AnalysisBase.logZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">logZ</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.analysis.base.AnalysisBase.logZ" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Bayesian Evidence (if computed).</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.base.AnalysisBase.add_chain" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.base.AnalysisBase.add_chain" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Append a chain to the list of loaded chains (at the specified index, default last)</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>chain</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>label</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>root</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>index</code></td>
+        <td><code>int</code></td>
+        <td><p><em>description</em></p></td>
+        <td><code>-1</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Append a chain to the list of loaded chains (at the specified index, default last)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        chain (str): _description_</span>
+<span class="sd">        label (str): _description_</span>
+<span class="sd">        root (str): _description_</span>
+<span class="sd">        index (int): _description_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 
@@ -2079,13 +2347,17 @@ AnalysisBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      <p>Compute the Bayesian Evidence for the chains.</p>
+      <p>Compute the Bayesian Evidence for the chains using <code>Harmonic</code>.
+This might be a time-comsuming method, make sure to properly read the documentation</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/analysis/base.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
 <span class="k">def</span> <span class="nf">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the Bayesian Evidence for the chains.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the Bayesian Evidence for the chains using ``Harmonic``.</span>
+<span class="sd">    This might be a time-comsuming method, make sure to properly read the documentation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="o">...</span>
 </code></pre></div>
         </details>
@@ -2288,6 +2560,7 @@ from MCMC samples of theta using the <code>f_given_x</code> package.</p>
 
 
 
+
   <div class="doc doc-object doc-class">
 
 
@@ -2312,6 +2585,7 @@ ChainBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">    Abstract Base Chain Class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_evidence</span><span class="o">=</span><span class="kc">None</span>
         <span class="k">pass</span>
 
     <span class="nd">@abstractmethod</span>
@@ -2335,6 +2609,12 @@ ChainBase            (<span title="abc.ABC">ABC</span>)
     <span class="k">def</span> <span class="nf">set_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the label for the chain&quot;&quot;&quot;</span>
         <span class="o">...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the Bayesian Evidence for the chain&quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">set_alias</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2374,6 +2654,16 @@ ChainBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">        Get the minimum chi2 point from the chain</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
+
+    <span class="nd">@property</span> 
+    <span class="k">def</span> <span class="nf">logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Log-Bayesian Evidence</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logZ</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">BayesianEvidenceNotFound</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 </code></pre></div>
         </details>
 
@@ -2383,6 +2673,29 @@ ChainBase            (<span title="abc.ABC">ABC</span>)
 
 
 
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.base.ChainBase.logZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">logZ</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.analysis.base.ChainBase.logZ" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Log-Bayesian Evidence</p>
+    </div>
+
+  </div>
 
 
 
@@ -2471,6 +2784,34 @@ ChainBase            (<span title="abc.ABC">ABC</span>)
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Print a latex table with the mean and 68% CL.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.base.ChainBase.get_logZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.base.ChainBase.get_logZ" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Get the Bayesian Evidence for the chain</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/base.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
+<span class="k">def</span> <span class="nf">get_logZ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the Bayesian Evidence for the chain&quot;&quot;&quot;</span>
     <span class="o">...</span>
 </code></pre></div>
         </details>

@@ -962,26 +962,99 @@
 
 
 
+
   <div class="doc doc-object doc-function">
 
 
 
 <h3 id="cosmo_ml_tools.plots.plot.plot_fill_between" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">plot_fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mf">97.7</span><span class="p">])</span></code>
+<code class="highlight language-python"><span class="n">plot_fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">samples_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mf">97.7</span><span class="p">])</span></code>
 
 
 <a href="#cosmo_ml_tools.plots.plot.plot_fill_between" class="headerlink" title="Permanent link">&para;</a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Plot median and +/- 2 sigma regions for a given (flatten) array of samples</p>
+      <p>Plot median and quantiles for a given (flatten) array of samples</p>
 
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>x</code></td>
+        <td><code>np.ndarray</code></td>
+        <td><p>an array with x-values as a numpy array.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>samples_y</code></td>
+        <td><code>np.ndarray</code></td>
+        <td><p>a numpy array with samples for the quantity f=y(x).</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>label</code></td>
+        <td><code>str</code></td>
+        <td><p>labels to use in the legend. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>ax</code></td>
+        <td><code>_type_</code></td>
+        <td><p>a matplotlib axes instance. If None, will create a single plot with default settings. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>color</code></td>
+        <td><code>str</code></td>
+        <td><p>color for the contours. Defaults to 'gray'.</p></td>
+        <td><code>&#39;gray&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>lw</code></td>
+        <td><code>float</code></td>
+        <td><p>length-width for the lines. Defaults to 2..</p></td>
+        <td><code>2.0</code></td>
+      </tr>
+      <tr>
+        <td><code>alpha</code></td>
+        <td><code>float</code></td>
+        <td><p>transparency of the contour colors. Defaults to 0.5.</p></td>
+        <td><code>0.5</code></td>
+      </tr>
+      <tr>
+        <td><code>quantiles</code></td>
+        <td><code>list</code></td>
+        <td><p>quantiles of the distribution to plot. Defaults to [2.3, 16, 50, 84, 97.7].</p></td>
+        <td><code>[2.3, 16, 50, 84, 97.7]</code></td>
+      </tr>
+  </tbody>
+</table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/plots/plot.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_fill_between</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">samples</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                      <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">color</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">:</span><span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mf">97.7</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot median and +/- 2 sigma regions for a given (flatten) array of samples&quot;&quot;&quot;</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_fill_between</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">samples_y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">:</span><span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mf">97.7</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot median and quantiles for a given (flatten) array of samples</span>
 
+<span class="sd">    Args:</span>
+<span class="sd">        x (np.ndarray): an array with x-values as a numpy array.</span>
+<span class="sd">        samples_y (np.ndarray): a numpy array with samples for the quantity f=y(x).</span>
+<span class="sd">        label (str, optional): labels to use in the legend. Defaults to None.</span>
+<span class="sd">        ax (_type_, optional): a matplotlib axes instance. If None, will create a single plot with default settings. Defaults to None.</span>
+<span class="sd">        color (str, optional): color for the contours. Defaults to &#39;gray&#39;.</span>
+<span class="sd">        lw (float, optional): length-width for the lines. Defaults to 2..</span>
+<span class="sd">        alpha (float, optional): transparency of the contour colors. Defaults to 0.5.</span>
+<span class="sd">        quantiles (list, optional): quantiles of the distribution to plot. Defaults to [2.3, 16, 50, 84, 97.7].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span> 
             <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -989,7 +1062,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cannot import matplotlib. Try installing matplotlib before!&#39;</span><span class="p">)</span>
         <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-    <span class="n">qs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">samples_y</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="n">median</span> <span class="o">=</span> <span class="n">qs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
