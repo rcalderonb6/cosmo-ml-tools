@@ -707,6 +707,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      resume()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace()
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1067,6 +1085,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      resume()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      trace()
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1184,14 +1220,14 @@ MCBase            (<span title="abc.ABC">ABC</span>)
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Start the sampling process</span>
+<span class="sd">        Start the sampling process from an initial guess.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 
     <span class="nd">@abstractmethod</span> 
     <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Resume the sampling process</span>
+<span class="sd">        Resume the sampling process from a set of precomputed points.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 
@@ -1204,7 +1240,7 @@ MCBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">            params (list): A list of parameters to plot.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            fig: An instance of the matplotlib class</span>
+<span class="sd">            fig: An instance of the matplotlib class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 </code></pre></div>
@@ -1235,14 +1271,14 @@ MCBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      <p>Resume the sampling process</p>
+      <p>Resume the sampling process from a set of precomputed points.</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/sampler/base.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span> 
 <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Resume the sampling process</span>
+<span class="sd">    Resume the sampling process from a set of precomputed points.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="o">...</span>
 </code></pre></div>
@@ -1265,14 +1301,14 @@ MCBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      <p>Start the sampling process</p>
+      <p>Start the sampling process from an initial guess.</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/sampler/base.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@abstractmethod</span>
 <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Start the sampling process</span>
+<span class="sd">    Start the sampling process from an initial guess.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="o">...</span>
 </code></pre></div>
@@ -1327,7 +1363,7 @@ MCBase            (<span title="abc.ABC">ABC</span>)
   <tbody>
     <tr>
       <td><code>fig</code></td>
-      <td><p>An instance of the matplotlib class</p></td>
+      <td><p>An instance of the matplotlib class.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1342,7 +1378,7 @@ MCBase            (<span title="abc.ABC">ABC</span>)
 <span class="sd">        params (list): A list of parameters to plot.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        fig: An instance of the matplotlib class</span>
+<span class="sd">        fig: An instance of the matplotlib class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="o">...</span>
 </code></pre></div>
@@ -1464,7 +1500,7 @@ EnsembleBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_t
 
     <div class="doc doc-contents ">
 
-      <p>Start the sampling process</p>
+      <p>Start the sampling process from an initial guess.</p>
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/sampler/ensemble.py</code></summary>
@@ -1573,6 +1609,12 @@ PocoMCBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_too
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">samples</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">samples</span>
+
+    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="k">pass</span>
 </code></pre></div>
         </details>
 
@@ -1611,6 +1653,92 @@ PocoMCBase            (<a class="autorefs autorefs-internal" title="cosmo_ml_too
 
 
 
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.sampler.pocomc.PocoMCBase.resume" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.resume" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Resume the sampling process from a set of precomputed points.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/sampler/pocomc.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.sampler.pocomc.PocoMCBase.trace" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.sampler.pocomc.PocoMCBase.trace" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Produce a trace plot of the chain. i.e. the evolution of the parameter values as a function of step number</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>params</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of parameters to plot.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>fig</code></td>
+      <td><p>An instance of the matplotlib class.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/sampler/pocomc.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
 
 
 

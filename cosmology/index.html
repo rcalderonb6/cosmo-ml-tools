@@ -1651,7 +1651,7 @@ Classy            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.c
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
 
         <span class="c1"># Handle the info variable according to the type and return a dictionary</span>
-        <span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">=</span><span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
@@ -1722,6 +1722,10 @@ Classy            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.c
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">background</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_background</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ell</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cls</span><span class="p">[</span><span class="s1">&#39;ell&#39;</span><span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">Cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;muK2&#39;</span><span class="p">):</span>
@@ -1832,6 +1836,7 @@ Classy            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.c
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -1902,7 +1907,7 @@ Classy            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.c
     <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
 
     <span class="c1"># Handle the info variable according to the type and return a dictionary</span>
-    <span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">=</span><span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>

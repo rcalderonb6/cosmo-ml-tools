@@ -675,9 +675,63 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.computeEvidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      computeEvidence()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.getInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      getInfo()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.analysis.Analysis.load" class="md-nav__link">
     <span class="md-ellipsis">
       load()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_2D" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_2D()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_posterior_y" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_posterior_y()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_triangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_triangle()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.set_aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_aliases()
     </span>
   </a>
   
@@ -1287,9 +1341,63 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.computeEvidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      computeEvidence()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.getInfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      getInfo()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.analysis.analysis.Analysis.load" class="md-nav__link">
     <span class="md-ellipsis">
       load()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_2D" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_2D()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_posterior_y" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_posterior_y()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_triangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_triangle()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.analysis.analysis.Analysis.set_aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_aliases()
     </span>
   </a>
   
@@ -1816,6 +1924,36 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
             <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">load_chains</span><span class="p">([</span><span class="n">chain</span><span class="p">],[</span><span class="n">label</span><span class="p">],</span><span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chains</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>   
+
+
+    <span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">pass</span>    
+
+    <span class="k">def</span> <span class="nf">plot_triangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+    <span class="k">def</span> <span class="nf">plot_2D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">plot_posterior_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_getGelmanRubin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_aliases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">aliases</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>    
 </code></pre></div>
         </details>
 
@@ -1836,7 +1974,7 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
 
 
 <h4 id="cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
 
 
 <a href="#cosmo_ml_tools.analysis.analysis.Analysis.add_chain" class="headerlink" title="Permanent link">&para;</a></h4>
@@ -1866,13 +2004,13 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
         <td><code>label</code></td>
         <td><code>str</code></td>
         <td><p><em>description</em></p></td>
-        <td><code>None</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>root</code></td>
         <td><code>str</code></td>
         <td><p><em>description</em></p></td>
-        <td><code>&#39;&#39;</code></td>
+        <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>index</code></td>
@@ -1884,12 +2022,61 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;chain0&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">load_chains</span><span class="p">([</span><span class="n">chain</span><span class="p">],[</span><span class="n">label</span><span class="p">],</span><span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">pass</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_chain</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">label</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">root</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">index</span><span class="p">:</span><span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">pass</span>    
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.computeEvidence" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.computeEvidence" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Compute the Bayesian Evidence for the chains using <code>Harmonic</code>.
+This might be a time-comsuming method, make sure to properly read the documentation</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">computeEvidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chain</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.getInfo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.getInfo" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Print useful information about the chains loaded.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
 </code></pre></div>
         </details>
     </div>
@@ -1903,7 +2090,7 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
 
 
 <h4 id="cosmo_ml_tools.analysis.analysis.Analysis.load" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chains</span><span class="p">)</span></code>
 
 
 <a href="#cosmo_ml_tools.analysis.analysis.Analysis.load" class="headerlink" title="Permanent link">&para;</a></h4>
@@ -1914,8 +2101,113 @@ Analysis            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools
 
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_chains</span><span class="o">=</span><span class="n">load_chains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chains</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">pass</span>   
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.plot_2D" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">plot_2D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_2D" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Plot the 2D marginalized posteriors.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_2D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.plot_posterior_y" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">plot_posterior_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_posterior_y" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Plot the posterior distribution of a given function y = f(x,theta)
+from MCMC samples of theta using the <code>f_given_x</code> package.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_posterior_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.plot_triangle" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">plot_triangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.plot_triangle" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Triangle plot for the specified subset of parameters.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_triangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">params</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.analysis.analysis.Analysis.set_aliases" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_aliases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aliases</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.analysis.analysis.Analysis.set_aliases" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Set aliases for the chains</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/analysis/analysis.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_aliases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">aliases</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">pass</span>    
 </code></pre></div>
         </details>
     </div>
