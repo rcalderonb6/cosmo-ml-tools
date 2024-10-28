@@ -79,7 +79,7 @@ class ClassEngine(BoltzmannBase):
         return get_alphas(self.cosmo)
     
     def Omega_of_z(self,component:str):
-        _densities={'cdm':self.rho_cdm,'c':self.rho_cdm,'b':self.rho_b,'cb':self.rho_b+self.rho_c,'m':self.rho_m,'g':self.rho_g,'ur':self.rho_ur,'de':self.rho_de}
+        _densities={'cdm':self.rho_cdm,'c':self.rho_cdm,'b':self.rho_b,'cb':self.rho_b+self.rho_cdm,'m':self.rho_m,'g':self.rho_g,'ur':self.rho_ur,'de':self.rho_de}
         Omega_of_z = _densities[component.lower()] / self.rho_crit
         return Omega_of_z
     
