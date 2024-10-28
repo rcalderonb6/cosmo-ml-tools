@@ -32,10 +32,10 @@ class ClassEngine(BoltzmannBase):
         self.info=initialize_helper(info)
         
         if cosmo is None:
-            self.cosmo = get_classy(info,other_info=other_info)
+            self.cosmo = get_classy(self.info,other_info=other_info)
         else:
             self.cosmo = cosmo
-            self.update(info)
+            self.update(self.info)
         
         self._H_units = {'1/Mpc' : 1, 
                          'km/s/Mpc' : C_KMS,
