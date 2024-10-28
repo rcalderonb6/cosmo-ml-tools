@@ -1654,10 +1654,10 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
         <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmo</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_H_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1/Mpc&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
                          <span class="s1">&#39;km/s/Mpc&#39;</span> <span class="p">:</span> <span class="n">C_KMS</span><span class="p">,</span>
@@ -1944,10 +1944,10 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
     <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmo</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_H_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1/Mpc&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
                      <span class="s1">&#39;km/s/Mpc&#39;</span> <span class="p">:</span> <span class="n">C_KMS</span><span class="p">,</span>
