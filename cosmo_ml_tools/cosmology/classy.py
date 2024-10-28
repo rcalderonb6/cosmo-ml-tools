@@ -1,7 +1,6 @@
 """
 TODO: Make everything jax-dependent/compatible
 """
-
 import numpy as np
 
 from .base import BoltzmannBase
@@ -49,13 +48,29 @@ class Classy(BoltzmannBase):
     def alpha(self,which:str='M'):
         return self._alphas[which]
     
+    def compute(self):
+        self.cosmo.compute()
+    
+    def empty(self):
+        self.cosmo.empty()  
+        self.cosmo.cleanup_struct()
+    
     def update(self,info:dict) -> None:
         """
         Update the values of the cosmological parameters with the provided dictionary and recompute observables.
         """
         self.cosmo.set(info)
-        self.cosmo.compute()
+        self.compute()
         self._clean_state=False
+    
+    def store(self):
+        pass
+    
+    def getInfo(self):
+        pass
+    
+    def plot(self,observables:list[str],ax=None):
+        pass
     
     def _background(self):
         return self.cosmo.get_background()
