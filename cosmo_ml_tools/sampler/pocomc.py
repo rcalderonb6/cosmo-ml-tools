@@ -33,6 +33,11 @@ class PocoMCBase(EnsembleBase):
         samples, _, _ = self.sampler.posterior(resample=True)
         return samples
     
+    def resume(self):
+        pass
+    
+    def trace(self,params:list[str]):
+        pass
 
 class PocoMCobaya(PocoMCBase):
         
