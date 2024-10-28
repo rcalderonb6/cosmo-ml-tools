@@ -219,7 +219,7 @@ def get_Cl(cosmo,ell_factor:bool=True,lensed:bool=True,units:str='muK2') -> dict
     # Remove first two multipoles and scale accordingly
     l=Cls['ell'][2:]
     if ell_factor:
-        l_factor = {key: l*(l+1) / TWO_PI for key in ['tt','te','et','ee']}
+        l_factor = {key: l*(l+1) / TWO_PI for key in ['tt','te','et','ee','bb']}
         l_factor['pp']= (l*(l+1))**2 / TWO_PI
         l_factor.update({key: (l*(l+1))**(3/2) / TWO_PI for key in ['tp','pt','ep','pe']})
     else:
