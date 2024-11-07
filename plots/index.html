@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/logo.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -625,6 +625,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format" class="md-nav__link">
+    <span class="md-ellipsis">
+      format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.DoubleColumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      DoubleColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.FullPage" class="md-nav__link">
+    <span class="md-ellipsis">
+      FullPage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.JCAP" class="md-nav__link">
+    <span class="md-ellipsis">
+      JCAP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.PRD" class="md-nav__link">
+    <span class="md-ellipsis">
+      PRD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.Presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.SingleColumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      SingleColumn
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.plots.monitor" class="md-nav__link">
     <span class="md-ellipsis">
       monitor
@@ -832,6 +901,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format" class="md-nav__link">
+    <span class="md-ellipsis">
+      format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.DoubleColumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      DoubleColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.FullPage" class="md-nav__link">
+    <span class="md-ellipsis">
+      FullPage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.JCAP" class="md-nav__link">
+    <span class="md-ellipsis">
+      JCAP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.PRD" class="md-nav__link">
+    <span class="md-ellipsis">
+      PRD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.Presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.plots.format.SingleColumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      SingleColumn
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cosmo_ml_tools.plots.monitor" class="md-nav__link">
     <span class="md-ellipsis">
       monitor
@@ -911,6 +1049,421 @@
 
 
 
+
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.plots.format" class="doc doc-heading">
+        <code>format</code>
+
+
+
+<a href="#cosmo_ml_tools.plots.format" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.DoubleColumn" class="doc doc-heading">
+        <code>
+DoubleColumn        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.DoubleColumn" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>DoubleColumn(rows: int = 1, cols: int = 1, height: float = 4, width: float = 8, fontsize: int = 16)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>    
+<span class="k">class</span> <span class="nc">DoubleColumn</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span>   
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.FullPage" class="doc doc-heading">
+        <code>
+FullPage        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.FullPage" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>FullPage(rows: int = 1, cols: int = 1, height: float = 6, width: float = 8, fontsize: int = 20)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">FullPage</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.JCAP" class="doc doc-heading">
+        <code>
+JCAP        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.JCAP" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>JCAP(rows: int = 1, cols: int = 1, height: float = 4, width: float = 8, fontsize: int = 16)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>    
+<span class="k">class</span> <span class="nc">JCAP</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span>   
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.PRD" class="doc doc-heading">
+        <code>
+PRD        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.PRD" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>PRD(rows: int = 1, cols: int = 1, height: float = 4, width: float = 8, fontsize: int = 16)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>    
+<span class="k">class</span> <span class="nc">PRD</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span>   
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.Presentation" class="doc doc-heading">
+        <code>
+Presentation        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.Presentation" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Presentation(rows: int = 1, cols: int = 1, height: float = 4, width: float = 8, fontsize: int = 16)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Presentation</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span>   
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.plots.format.SingleColumn" class="doc doc-heading">
+        <code>
+SingleColumn        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.plots.format.SingleColumn" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>SingleColumn(rows: int = 1, cols: int = 1, height: float = 4, width: float = 4, fontsize: int = 12)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/plots/format.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>    
+<span class="k">class</span> <span class="nc">SingleColumn</span><span class="p">:</span>
+    <span class="n">rows</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cols</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">height</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">width</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">fontsize</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">fig_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tight_layout&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -1084,6 +1637,7 @@
     </div>
 
   </div>
+
 
 
 

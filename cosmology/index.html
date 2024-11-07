@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/logo.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -765,6 +765,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      precision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="precision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.DefaultPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      DefaultPrecision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.EFTofDEPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFTofDEPrecision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.FeaturesPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      FeaturesPrecision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1206,6 +1248,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      precision
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="precision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.DefaultPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      DefaultPrecision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.EFTofDEPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFTofDEPrecision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.precision.FeaturesPrecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      FeaturesPrecision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1637,14 +1721,17 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClassEngine</span><span class="p">(</span><span class="n">BoltzmannBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base Class for the Boltzmann solver Class and its extensions&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">cosmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;A wrapper for the Boltzmann solvers Class and its extensions.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">other_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A wrapper for the Boltzmann solvers Class and its extensions.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            info (str | dict): a string pointing to a .ini/.yaml file or python dictionary with the desired class settings/parameters</span>
 <span class="sd">            other_info (dict|None, optional): another set of settings passed to class (e.g. precision settings). Defaults to None.</span>
 <span class="sd">            verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.</span>
-<span class="sd">            name (str, optional): Give a name to the instance of the class.</span>
+<span class="sd">            name (str, optional): Give a name to the instance of the class (used for labels in the plots).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1701,7 +1788,7 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
         <span class="k">return</span> <span class="n">get_alphas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">Omega_of_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">component</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-        <span class="n">_densities</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cdm&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_cdm</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_cdm</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_b</span><span class="p">,</span><span class="s1">&#39;cb&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_b</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_c</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_m</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_g</span><span class="p">,</span><span class="s1">&#39;ur&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_ur</span><span class="p">,</span><span class="s1">&#39;de&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_de</span><span class="p">}</span>
+        <span class="n">_densities</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cdm&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_cdm</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_cdm</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_b</span><span class="p">,</span><span class="s1">&#39;cb&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_b</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_cdm</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_m</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_g</span><span class="p">,</span><span class="s1">&#39;ur&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_ur</span><span class="p">,</span><span class="s1">&#39;de&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">rho_de</span><span class="p">}</span>
         <span class="n">Omega_of_z</span> <span class="o">=</span> <span class="n">_densities</span><span class="p">[</span><span class="n">component</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rho_crit</span>
         <span class="k">return</span> <span class="n">Omega_of_z</span>
 
@@ -1754,8 +1841,17 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
         <span class="k">return</span> <span class="n">get_Cl</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="n">ell_factor</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="n">lensed</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;h/Mpc&#39;</span><span class="p">):</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_Pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">H0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mf">1e2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">Omega_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1871,6 +1967,8 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 
 
 
+
+
   <div class="doc doc-object doc-method">
 
 
@@ -1920,21 +2018,24 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
       <tr>
         <td><code>name</code></td>
         <td><code>str</code></td>
-        <td><p>Give a name to the instance of the class.</p></td>
+        <td><p>Give a name to the instance of the class (used for labels in the plots).</p></td>
         <td><code>&#39;name&#39;</code></td>
       </tr>
   </tbody>
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">cosmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper for the Boltzmann solvers Class and its extensions.</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">other_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A wrapper for the Boltzmann solvers Class and its extensions.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        info (str | dict): a string pointing to a .ini/.yaml file or python dictionary with the desired class settings/parameters</span>
 <span class="sd">        other_info (dict|None, optional): another set of settings passed to class (e.g. precision settings). Defaults to None.</span>
 <span class="sd">        verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.</span>
-<span class="sd">        name (str, optional): Give a name to the instance of the class.</span>
+<span class="sd">        name (str, optional): Give a name to the instance of the class (used for labels in the plots).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span> <span class="o">=</span> <span class="kc">True</span>
@@ -2258,6 +2359,7 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 
 
 
+
   <div class="doc doc-object doc-function">
 
 
@@ -2421,6 +2523,218 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 
 
 
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="cosmo_ml_tools.cosmology.precision" class="doc doc-heading">
+        <code>precision</code>
+
+
+
+<a href="#cosmo_ml_tools.cosmology.precision" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.precision.DefaultPrecision" class="doc doc-heading">
+        <code>
+DefaultPrecision        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.cosmology.precision.DefaultPrecision" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>DefaultPrecision()</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/precision.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">DefaultPrecision</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.precision.EFTofDEPrecision" class="doc doc-heading">
+        <code>
+EFTofDEPrecision            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.cosmology.precision.DefaultPrecision" href="#cosmo_ml_tools.cosmology.precision.DefaultPrecision">DefaultPrecision</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.cosmology.precision.EFTofDEPrecision" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>EFTofDEPrecision(non_linear_min_k_max: int = 20, accurate_lensing: int = 1, delta_l_max: int = 1000.0, perturbations_sampling_stepsize: float = 0.01, l_logstep: float = 1.026, k_per_decade_for_pk: int = 200, k_max_tau0_over_l_max: int = 8)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/precision.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">EFTofDEPrecision</span><span class="p">(</span><span class="n">DefaultPrecision</span><span class="p">):</span>
+    <span class="n">non_linear_min_k_max</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">accurate_lensing</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">delta_l_max</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mf">1e3</span>
+    <span class="n">perturbations_sampling_stepsize</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">1e-2</span>
+    <span class="n">l_logstep</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">1.026</span>
+    <span class="n">k_per_decade_for_pk</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">200</span>
+    <span class="n">k_max_tau0_over_l_max</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">8</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="cosmo_ml_tools.cosmology.precision.FeaturesPrecision" class="doc doc-heading">
+        <code>
+FeaturesPrecision            (<a class="autorefs autorefs-internal" title="cosmo_ml_tools.cosmology.precision.DefaultPrecision" href="#cosmo_ml_tools.cosmology.precision.DefaultPrecision">DefaultPrecision</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#cosmo_ml_tools.cosmology.precision.FeaturesPrecision" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>FeaturesPrecision(k_per_decade_for_pk: int = 200, k_per_decade_for_bao: int = 200)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/precision.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">FeaturesPrecision</span><span class="p">(</span><span class="n">DefaultPrecision</span><span class="p">):</span>
+    <span class="n">k_per_decade_for_pk</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">k_per_decade_for_bao</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
