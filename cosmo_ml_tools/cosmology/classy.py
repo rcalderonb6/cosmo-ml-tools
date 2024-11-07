@@ -2,10 +2,9 @@
 TODO: Make everything jax-dependent/compatible
 """
 import numpy as np
-
 from .base import BoltzmannBase
 from .constants import *
-from ..utils.file import initialize_helper
+from ..utils import initialize_helper
 
 # try:
 #     from classy import Class
@@ -15,14 +14,17 @@ from ..utils.file import initialize_helper
 class ClassEngine(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""
     
-    def __init__(self,info:str|dict|None=None,cosmo=None,other_info=dict|None,verbose:int=0,name:str='name') -> None:
-        """A wrapper for the Boltzmann solvers Class and its extensions.
+    def __init__(self,info:str|dict|None = None, cosmo = None,
+                 other_info = dict|None , verbose: int = 0,
+                 name:str='name') -> None:
+        """
+        A wrapper for the Boltzmann solvers Class and its extensions.
 
         Args:
             info (str | dict): a string pointing to a .ini/.yaml file or python dictionary with the desired class settings/parameters
             other_info (dict|None, optional): another set of settings passed to class (e.g. precision settings). Defaults to None.
             verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.
-            name (str, optional): Give a name to the instance of the class.
+            name (str, optional): Give a name to the instance of the class (used for labels in the plots).
         """
         
         self._clean_state = True
@@ -132,8 +134,17 @@ class ClassEngine(BoltzmannBase):
         return get_Cl(self.cosmo,ell_factor=ell_factor,lensed=lensed,units=units)
 
     @property
+    def Pk(self,units='h/Mpc'):
+        k=np.logspace(-4,0,100)
+        return get_Pk(k,self.cosmo,units=units)
+
+    @property
     def H0(self):
         return 1e2*self.cosmo.h()
+    
+    @property
+    def h(self):
+        return self.cosmo.h()
     
     @property
     def Omega_g(self):
@@ -209,6 +220,13 @@ class ClassEngine(BoltzmannBase):
         elif self._is_scf:
             DE_type='Scalar Field'        
         return DE_type      
+
+def get_Pk(k,cosmo,units='h/Mpc'):
+    if units in ['h/Mpc']:
+        h=cosmo.h()
+        return np.array([cosmo.pk(ki*h,0.)*h**3 for ki in k])
+    return np.array([cosmo.pk(ki,0.) for ki in k])
+    
     
 def get_classy(info:dict,other_info:dict|None=None,verbose=0):
     """Get an instance of the Class class and compute observables requested in the `info` dictionary.
@@ -290,5 +308,5 @@ if __name__=='__main__':
     for m,info in zip([ini,yaml,dic],infos):
         cosmo=ClassEngine(info=info,cosmo=m,name='name')
         print(cosmo.Cls)
-
+        print(cosmo.Pk)
 
