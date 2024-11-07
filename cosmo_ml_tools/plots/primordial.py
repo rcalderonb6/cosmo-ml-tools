@@ -23,7 +23,7 @@ class PrimordialFeatures(PlotBase):
         for i,model in enumerate(models_Pk):
             axs=self.axes[:,i]
             # axs[0].text(1.5e-4,1.9e-9,s=frequencies[i],fontsize='large')
-            # axs[0].plot(model['kh'],LogFeat(model['kh'],Alog=0),ls='--',c='k')
+            
             axs[0].set_ylim(1.75e-9,2.8e-9)
             
             # for (k,Pk),c in zip(model['Pk'].items(),cmaps[i]):
