@@ -1,7 +1,9 @@
-import os
+import sys,os
 import numpy as np
 from functools import partial
 from cobaya.yaml import yaml_load
+from typing import Optional, Union
+    
 class FileTypeNotSupported(Exception):
     pass
     
@@ -89,7 +91,10 @@ def load_bf(filename:str):
 def load_param(filename:str):
     raise NotImplementedError
 
-def write_bf(bestfit_point:np.ndarray,param_names:list[str]|None=None,out_filename:str='chain.bestfit',override:bool=False):
+def write_bf(bestfit_point:np.ndarray,
+             param_names: Optional[list[str]] = None,
+             out_filename: str = 'chain.bestfit', 
+             override: bool = False):
     """
     Write a GetDist-like .bestfit file
 
@@ -118,14 +123,15 @@ def _is_param(filename):
     return True if '.param' in filename else False
 
 def _get_ini_file_type(ini_file:str):
-    """Helper function to retrieve the initialization file type
+    """
+    Helper function to retrieve the initialization file type
 
     Args:
         ini_file (str): a string containing the initialization filename/location on disk. 
         Formats currently supported are: .param, .yaml, .ini, and .bestfit
 
     Returns:
-        str: a string determining the type of ini file
+        str: a string determining the type of initialization file
     """
     # .yaml input handling
     if _is_yaml(ini_file):
@@ -143,7 +149,7 @@ def _get_ini_file_type(ini_file:str):
         print('Initialization file format not found')
     return fmt
 
-def initialize_helper(ini_file:str|dict,engine='class') -> dict:
+def initialize_helper(ini_file:Union[str,dict],engine='class') -> dict:
     """Helper function commonly used in the various __init__ methods.
 
     Args:
@@ -165,4 +171,4 @@ def initialize_helper(ini_file:str|dict,engine='class') -> dict:
     elif not isinstance(ini_file, dict):
         raise FileTypeNotSupported 
     
-    
+    return ini_file

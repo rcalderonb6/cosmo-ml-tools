@@ -1,7 +1,12 @@
 """
-TODO: Make everything jax-dependent/compatible
+TODO: 
+- Make everything jax-dependent/compatible
+- Implement __repr__ and __str__ methods for BoltzmannBase class
 """
+
+
 import numpy as np
+from typing import Optional, Union
 from .base import BoltzmannBase
 from .constants import *
 from ..utils import initialize_helper
@@ -14,9 +19,10 @@ from ..utils import initialize_helper
 class ClassEngine(BoltzmannBase):
     """Base Class for the Boltzmann solver Class and its extensions"""
     
-    def __init__(self,info:str|dict|None = None, cosmo = None,
-                 other_info = dict|None , verbose: int = 0,
-                 name:str='name') -> None:
+    def __init__(self,cosmo = None,
+                 info: Optional[Union[str,dict]] = None,
+                 other_info: Optional[dict] = None , verbose: int = 0,
+                 name:str = 'name') -> None:
         """
         A wrapper for the Boltzmann solvers Class and its extensions.
 
@@ -26,13 +32,14 @@ class ClassEngine(BoltzmannBase):
             verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.
             name (str, optional): Give a name to the instance of the class (used for labels in the plots).
         """
-        
+        self._k_vals = 'Matter power spectrum not yet computed!'
         self._clean_state = True
         self._name = name
         
         # Handle the info variable according to the type and return a dictionary
-        self.info=initialize_helper(info)
-        
+        if info is not None:
+            self.info=initialize_helper(info)
+
         if cosmo is None:
             self.cosmo = get_classy(self.info,other_info=other_info)
         else:
@@ -42,8 +49,21 @@ class ClassEngine(BoltzmannBase):
         self._H_units = {'1/Mpc' : 1, 
                          'km/s/Mpc' : C_KMS,
                          'dimensionless': 1 / self.cosmo.Hubble(0)}
+
+
+    def Pk(self,k:Union[float,np.ndarray],units:str='h/Mpc',non_linear:bool=False):
+        """Retrieve the (linear/non-linear) matter powerspectrum using Class.
+
+        Args:
+            k (Union[float,np.ndarray]): _description_
+            units (str, optional): _description_. Defaults to 'h/Mpc'.
+
+        Returns:
+            np.ndarray : an array with P(k) values in the requested k-range.
+        """
+        return get_Pk(k,self.cosmo,units=units)
         
-    def Hubble(self,z:float|np.ndarray,units:str='km/s/Mpc'):
+    def Hubble(self,z: Union[float,np.ndarray], units: str = 'km/s/Mpc'):
         H=np.array([self.cosmo.Hubble(zi) for zi in z]) if isinstance(z,np.ndarray) else self.cosmo.Hubble(z)
         return self._H_units[units] * H
     
@@ -52,10 +72,12 @@ class ClassEngine(BoltzmannBase):
     
     def compute(self):
         self.cosmo.compute()
+        self._clean_state=False
     
     def empty(self):
-        self.cosmo.empty()  
-        self.cosmo.cleanup_struct()
+        if not self._clean_state:
+            self.cosmo.empty()  
+            self.cosmo.cleanup_struct()
     
     def update(self,info:dict) -> None:
         """
@@ -63,7 +85,6 @@ class ClassEngine(BoltzmannBase):
         """
         self.cosmo.set(info)
         self.compute()
-        self._clean_state=False
     
     def store(self):
         pass
@@ -92,6 +113,10 @@ class ClassEngine(BoltzmannBase):
     @property
     def z(self):
         return self.background['z']
+    
+    # @property
+    # def k(self):
+    #     return self._k_vals
     
     @property
     def rho_m(self):
@@ -132,11 +157,6 @@ class ClassEngine(BoltzmannBase):
     @property
     def Cls(self,ell_factor=True,lensed=True,units='muK2'):
         return get_Cl(self.cosmo,ell_factor=ell_factor,lensed=lensed,units=units)
-
-    @property
-    def Pk(self,units='h/Mpc'):
-        k=np.logspace(-4,0,100)
-        return get_Pk(k,self.cosmo,units=units)
 
     @property
     def H0(self):
@@ -221,14 +241,14 @@ class ClassEngine(BoltzmannBase):
             DE_type='Scalar Field'        
         return DE_type      
 
-def get_Pk(k,cosmo,units='h/Mpc'):
+def get_Pk(k,cosmo,z:float = 0.,units='h/Mpc'):
     if units in ['h/Mpc']:
         h=cosmo.h()
-        return np.array([cosmo.pk(ki*h,0.)*h**3 for ki in k])
-    return np.array([cosmo.pk(ki,0.) for ki in k])
+        return np.array([cosmo.pk(ki*h,z)*h**3 for ki in k])
+    return np.array([cosmo.pk(ki,z) for ki in k])
     
     
-def get_classy(info:dict,other_info:dict|None=None,verbose=0):
+def get_classy(info:dict,other_info:Optional[dict]=None,verbose=0):
     """Get an instance of the Class class and compute observables requested in the `info` dictionary.
 
     Args:
