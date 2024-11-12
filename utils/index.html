@@ -1173,7 +1173,7 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/utils/file.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">initialize_helper</span><span class="p">(</span><span class="n">ini_file</span><span class="p">:</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">dict</span><span class="p">],</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function commonly used in the various __init__ methods.</span>
 
 <span class="sd">    Args:</span>
@@ -1194,6 +1194,8 @@
     <span class="c1"># If its a dictionary, its already in the correct format and we do nothing</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ini_file</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="k">raise</span> <span class="n">FileTypeNotSupported</span> 
+
+    <span class="k">return</span> <span class="n">ini_file</span>
 </code></pre></div>
         </details>
     </div>
@@ -1372,7 +1374,10 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/utils/file.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write_bf</span><span class="p">(</span><span class="n">bestfit_point</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">param_names</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">out_filename</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;chain.bestfit&#39;</span><span class="p">,</span><span class="n">override</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write_bf</span><span class="p">(</span><span class="n">bestfit_point</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+             <span class="n">param_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">out_filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;chain.bestfit&#39;</span><span class="p">,</span> 
+             <span class="n">override</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write a GetDist-like .bestfit file</span>
 

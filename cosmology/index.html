@@ -666,6 +666,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.ClassEngine.Pk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pk()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cosmo_ml_tools.cosmology.classy.ClassEngine.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       __init__()
@@ -1147,6 +1156,15 @@
   
     <nav class="md-nav" aria-label="ClassEngine">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cosmo_ml_tools.cosmology.classy.ClassEngine.Pk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pk()
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#cosmo_ml_tools.cosmology.classy.ClassEngine.__init__" class="md-nav__link">
@@ -1687,7 +1705,10 @@ BoltzmannBase            (<span title="abc.ABC">ABC</span>)
 
     <div class="doc doc-contents ">
 
-      
+      <ul>
+<li>Make everything jax-dependent/compatible</li>
+<li>Implement <strong>repr</strong> and <strong>str</strong> methods for BoltzmannBase class</li>
+</ul>
 
 
 
@@ -1721,9 +1742,10 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
           <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClassEngine</span><span class="p">(</span><span class="n">BoltzmannBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base Class for the Boltzmann solver Class and its extensions&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">other_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                 <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">other_info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A wrapper for the Boltzmann solvers Class and its extensions.</span>
 
@@ -1733,12 +1755,13 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 <span class="sd">            verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.</span>
 <span class="sd">            name (str, optional): Give a name to the instance of the class (used for labels in the plots).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">_k_vals</span> <span class="o">=</span> <span class="s1">&#39;Matter power spectrum not yet computed!&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
 
         <span class="c1"># Handle the info variable according to the type and return a dictionary</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
@@ -1750,7 +1773,20 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
                          <span class="s1">&#39;km/s/Mpc&#39;</span> <span class="p">:</span> <span class="n">C_KMS</span><span class="p">,</span>
                          <span class="s1">&#39;dimensionless&#39;</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Hubble</span><span class="p">(</span><span class="mi">0</span><span class="p">)}</span>
 
-    <span class="k">def</span> <span class="nf">Hubble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">z</span><span class="p">:</span><span class="nb">float</span><span class="o">|</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;km/s/Mpc&#39;</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">Pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span><span class="n">units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;h/Mpc&#39;</span><span class="p">,</span><span class="n">non_linear</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieve the (linear/non-linear) matter powerspectrum using Class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            k (Union[float,np.ndarray]): _description_</span>
+<span class="sd">            units (str, optional): _description_. Defaults to &#39;h/Mpc&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray : an array with P(k) values in the requested k-range.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">get_Pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">Hubble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">z</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">units</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;km/s/Mpc&#39;</span><span class="p">):</span>
         <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Hubble</span><span class="p">(</span><span class="n">zi</span><span class="p">)</span> <span class="k">for</span> <span class="n">zi</span> <span class="ow">in</span> <span class="n">z</span><span class="p">])</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">Hubble</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H_units</span><span class="p">[</span><span class="n">units</span><span class="p">]</span> <span class="o">*</span> <span class="n">H</span>
 
@@ -1759,10 +1795,12 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 
     <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="o">=</span><span class="kc">False</span>
 
     <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>  
-        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">cleanup_struct</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>  
+            <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">cleanup_struct</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1770,7 +1808,6 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="o">=</span><span class="kc">False</span>
 
     <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
@@ -1799,6 +1836,10 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">background</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+
+    <span class="c1"># @property</span>
+    <span class="c1"># def k(self):</span>
+    <span class="c1">#     return self._k_vals</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rho_m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1839,11 +1880,6 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">Cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;muK2&#39;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_Cl</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">ell_factor</span><span class="o">=</span><span class="n">ell_factor</span><span class="p">,</span><span class="n">lensed</span><span class="o">=</span><span class="n">lensed</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">Pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;h/Mpc&#39;</span><span class="p">):</span>
-        <span class="n">k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">get_Pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">H0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1968,13 +2004,87 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 
 
 
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="cosmo_ml_tools.cosmology.classy.ClassEngine.Pk" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">Pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;h/Mpc&#39;</span><span class="p">,</span> <span class="n">non_linear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+<a href="#cosmo_ml_tools.cosmology.classy.ClassEngine.Pk" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Retrieve the (linear/non-linear) matter powerspectrum using Class.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>k</code></td>
+        <td><code>Union[float,np.ndarray]</code></td>
+        <td><p><em>description</em></p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>units</code></td>
+        <td><code>str</code></td>
+        <td><p><em>description</em>. Defaults to 'h/Mpc'.</p></td>
+        <td><code>&#39;h/Mpc&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>np.ndarray </code></td>
+      <td><p>an array with P(k) values in the requested k-range.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">Pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span><span class="n">units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;h/Mpc&#39;</span><span class="p">,</span><span class="n">non_linear</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve the (linear/non-linear) matter powerspectrum using Class.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        k (Union[float,np.ndarray]): _description_</span>
+<span class="sd">        units (str, optional): _description_. Defaults to &#39;h/Mpc&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray : an array with P(k) values in the requested k-range.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">get_Pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
 
   <div class="doc doc-object doc-method">
 
 
 
 <h4 id="cosmo_ml_tools.cosmology.classy.ClassEngine.__init__" class="doc doc-heading">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">other_info</span><span class="o">=</span><span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">other_info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -2007,7 +2117,7 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
         <td><code>other_info</code></td>
         <td><code>dict|None</code></td>
         <td><p>another set of settings passed to class (e.g. precision settings). Defaults to None.</p></td>
-        <td><code>dict | None</code></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>verbose</code></td>
@@ -2025,9 +2135,10 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-             <span class="n">other_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">|</span><span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-             <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cosmo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">other_info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A wrapper for the Boltzmann solvers Class and its extensions.</span>
 
@@ -2037,12 +2148,13 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 <span class="sd">        verbose (int, optional): Print useful information for debugging purposes. Defaults to 0.</span>
 <span class="sd">        name (str, optional): Give a name to the instance of the class (used for labels in the plots).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
+    <span class="bp">self</span><span class="o">.</span><span class="n">_k_vals</span> <span class="o">=</span> <span class="s1">&#39;Matter power spectrum not yet computed!&#39;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
 
     <span class="c1"># Handle the info variable according to the type and return a dictionary</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">=</span><span class="n">initialize_helper</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">cosmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">get_classy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">,</span><span class="n">other_info</span><span class="o">=</span><span class="n">other_info</span><span class="p">)</span>
@@ -2080,6 +2192,7 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
           <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="o">=</span><span class="kc">False</span>
 </code></pre></div>
         </details>
     </div>
@@ -2105,8 +2218,9 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>  
-    <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">cleanup_struct</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">cleanup_struct</span><span class="p">()</span>
 </code></pre></div>
         </details>
     </div>
@@ -2234,7 +2348,6 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_clean_state</span><span class="o">=</span><span class="kc">False</span>
 </code></pre></div>
         </details>
     </div>
@@ -2488,7 +2601,7 @@ ClassEngine            (<a class="autorefs autorefs-internal" title="cosmo_ml_to
 </table>
         <details class="quote">
           <summary>Source code in <code>cosmo_ml_tools/cosmology/classy.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">other_info</span><span class="p">:</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_classy</span><span class="p">(</span><span class="n">info</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">other_info</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an instance of the Class class and compute observables requested in the `info` dictionary.</span>
 
 <span class="sd">    Args:</span>
